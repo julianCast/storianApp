@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { TranslateService } from 'ng2-translate/ng2-translate';
-import { TabsPage } from '../pages/tabs/tabs';
+import { IntroPage } from '../pages/intro/intro';
 import { LanguageService } from '../providers/language-service/language-service';
 import { ConfigService } from '../providers/config-service/config-service';
 
@@ -12,7 +12,7 @@ import { ConfigService } from '../providers/config-service/config-service';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = IntroPage;
 
   constructor(
     private platform: Platform,
@@ -32,8 +32,6 @@ export class MyApp {
             },
             error => {}
           );
-        } else {
-          console.log('language stored!',data );
         }
       }
     )

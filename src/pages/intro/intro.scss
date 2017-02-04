@@ -1,0 +1,28 @@
+
+.intro-page {
+  .scroll-content {
+  background: url("../assets/img/background-forest.jpg");
+  background-size: cover;
+.title-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: #605a81;
+  float: right;
+}
+#title {
+  font-size: 7vmax;
+
+}
+#subtitle {
+  font-size: 3vmax;
+  text-align: right;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+
+  }
+
+}

@@ -2,10 +2,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { IntroPage } from '../pages/intro/intro';
+import { MainPage } from '../pages/main/main';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 import { LanguageService } from '../providers/language-service/language-service';
 import { ConfigService } from '../providers/config-service/config-service';
@@ -15,10 +13,8 @@ import { Storage } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    IntroPage,
+    MainPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -31,10 +27,8 @@ import { Storage } from '@ionic/storage';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    IntroPage,
+    MainPage
   ],
   providers: [
     LanguageService,
