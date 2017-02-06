@@ -9,5 +9,10 @@
     "settings": "Ajustes",
     "sendStory": "Envía tu historia",
     "help": "Ayuda"
+  },
+  "SETTINGS": {
+    "language": "Idioma",
+    "sound": "Sonido",
+    "nightMode": "Modo Noche"
   }
 }

@@ -1,0 +1,28 @@
+
+.home-page {
+  .scroll-content {
+    background: url("../assets/img/background-forest.jpg");
+    background-size: cover;
+    .editor-story{
+      background: transparent;
+      margin: 0 auto;
+      width: 200px;
+      text-align: center;
+
+      ion-item, ion-list-header, ion-label{
+        background: transparent;
+        color: #605a81;
+        font-weight: bold;
+      }
+      ion-list-header {
+        font-size: 3rem;
+        width: 250px;
+      }
+    }
+  ion-icon[name="menu"] {
+    font-size: 5vmax;
+    color: #605a81;
+  }
+  }
+
+}

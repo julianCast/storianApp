@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
-import { MainPage } from '../main/main';
+import { HomePage } from '../home/home';
 
 @Component({
   templateUrl: 'intro.html',
@@ -15,6 +15,6 @@ export class IntroPage {
     this.menu.swipeEnable(false, "sideMenu");
   }
   loadApp() {
-    this.nav.setRoot(MainPage);
+    this.nav.setRoot(HomePage);
   }
 }

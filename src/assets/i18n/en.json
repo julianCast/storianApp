@@ -9,5 +9,10 @@
     "settings": "Settings",
     "sendStory": "Send your story",
     "help": "Help"
+  },
+  "SETTINGS": {
+    "language": "Language",
+    "sound": "Sound",
+    "nightMode": "Night Mode"
   }
 }

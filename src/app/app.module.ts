@@ -3,7 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { MyApp } from './app.component';
 import { IntroPage } from '../pages/intro/intro';
-import { MainPage } from '../pages/main/main';
+import { HomePage } from '../pages/home/home';
+import { SettingsPage } from '../pages/settings/settings';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 import { LanguageService } from '../providers/language-service/language-service';
 import { ConfigService } from '../providers/config-service/config-service';
@@ -14,7 +15,8 @@ import { Storage } from '@ionic/storage';
   declarations: [
     MyApp,
     IntroPage,
-    MainPage
+    HomePage,
+    SettingsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -28,7 +30,8 @@ import { Storage } from '@ionic/storage';
   entryComponents: [
     MyApp,
     IntroPage,
-    MainPage
+    HomePage,
+    SettingsPage
   ],
   providers: [
     LanguageService,

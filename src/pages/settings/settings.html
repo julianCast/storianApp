@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span>{{"SIDEMENU.settings" | translate}} </span>
+    </ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>{{"SETTINGS.language" | translate}}</ion-label>
+      <ion-select [(ngModel)]="userLanguage" (ngModelChange)="changeLanguage($event)">
+        <ion-option value="en">
+          <ion-item>English</ion-item>
+        </ion-option>
+        <ion-option value="es">
+          <ion-item>Español</ion-item>
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-list-header>
+      <ion-toggle [(ngModel)]="userSound" (ngModelChange)="changeSounds()"></ion-toggle>
+      <ion-label>
+        {{"SETTINGS.sound" | translate}}
+      </ion-label>
+      <ion-icon *ngIf="userSound" name='notifications' item-left></ion-icon>
+      <ion-icon *ngIf="!userSound" name='notifications-off' item-left></ion-icon>
+    </ion-list-header>
+    <ion-list-header>
+      <ion-toggle [(ngModel)]="nightMode" (ngModelChange)="changeNightMode()" ></ion-toggle>
+      <ion-label>
+        {{"SETTINGS.nightMode" | translate}}
+      </ion-label>
+      <ion-icon name='moon' item-left></ion-icon>
+    </ion-list-header>
+  </ion-list>
+</ion-content>
