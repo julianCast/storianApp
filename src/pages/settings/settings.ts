@@ -32,16 +32,13 @@ export class SettingsPage {
   changeLanguage(language) {
     this.config.languageUser = language;
 
-    this.config.setConfigAtt("language", language)
-      .then(() => {
-        this.translate.use(language)
-      });
+    this.config.setConfigAtt("language", language);
+    this.translate.use(language)
   }
 
   changeSounds() {
     this.config.sound = this.userSound;
-    this.config.setConfigAtt("sound", this.userSound)
-    // play music or not
+    this.config.setConfigAtt("sound", this.userSound);
   }
 
   changeNightMode() {

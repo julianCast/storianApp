@@ -1,13 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar, Splashscreen, NativeAudio } from 'ionic-native';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { IntroPage } from '../pages/intro/intro';
 import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { LanguageService } from '../providers/language-service/language-service';
 import { ConfigService } from '../providers/config-service/config-service';
-
 
 
 @Component({
@@ -21,8 +20,8 @@ export class MyApp {
   constructor(
     private platform: Platform,
     private translate: TranslateService,
-    private language: LanguageService,
-    private config: ConfigService
+    public language: LanguageService,
+    public config: ConfigService
   ) {
 
     // Pages showed on #sideMenu
@@ -31,38 +30,20 @@ export class MyApp {
       home: HomePage
     };
 
-    // Initial userConfig
-    let userConfig = {
-      "language": null,
-      "sound": true,
-      "night-mode": false
-    };
+
+    let musicVolume: number = 0.4;
 
     // On first time, save config
     config.getConfig().then(
       (data) => {
-        if (!data) {
-          if (config.setConfig(userConfig)) {
-            //Check if language is stored and set it
-            if (!config.getLanguageUser()) {
-              // Set the default language for translation strings, and the current language.
-              language.selectBestLanguage().then(
-                done => {
-                  translate.use(language.langSelected);
-                  config.setConfigAtt("language", language.langSelected);
-                },
-                error => { }
-              );
-            }
-
-          }
-        } else {
-          config.getConfig().then(
-            data => {
-              translate.use(config.getLanguageUser());
-            }
-          )
-        }
+        console.log(data);
+          translate.use(data['language']);
+          NativeAudio.preloadComplex('main-ambient', 'assets/sound/music-background.mp3', musicVolume, 1, 1).then(
+            function () {
+              if (config.getSoundUser()) {
+                NativeAudio.play('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
+              }
+            }.bind(this));
       },
       e => {
         console.log('error getting config', e);
