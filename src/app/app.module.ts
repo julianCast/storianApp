@@ -8,6 +8,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 import { LanguageService } from '../providers/language-service/language-service';
 import { ConfigService } from '../providers/config-service/config-service';
+import { StoryService } from '../providers/story-service/story-service';
 import { Storage } from '@ionic/storage';
 
 
@@ -36,6 +37,7 @@ import { Storage } from '@ionic/storage';
   providers: [
     LanguageService,
     ConfigService,
+    StoryService,
     Storage,
     {
     provide: ErrorHandler,

@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [ngClass]="{'night-mode': nightMode}" >
   <ion-navbar>
     <ion-title>
       <span>{{"SIDEMENU.settings" | translate}} </span>
@@ -16,7 +16,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-list>
+  <ion-list [ngClass]="{'night-mode': nightMode}" >
 
     <ion-item>
       <ion-label>{{"SETTINGS.language" | translate}}</ion-label>

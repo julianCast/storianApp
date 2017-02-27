@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage';
 import { NativeAudio } from 'ionic-native';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { LanguageService } from '../language-service/language-service';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class ConfigService {
@@ -13,13 +14,18 @@ export class ConfigService {
   private initialConfig = {
     "language": null,
     "sound": true,
-    "night-mode": false
+    "night-mode": false,
+    "stories-read": {
+      "db_count": "",
+      "data": []
+    }
   };
 
   constructor(
     private storage: Storage,
     private translate: TranslateService,
     public language: LanguageService,
+    public http: Http,
   ) {
     // Initial userConfig
 
@@ -96,6 +102,15 @@ export class ConfigService {
   setConfig(config) {
     this.config = config;
     return this.storage.set('config', config);
+  }
+  updateCollection() {
+    this.http.get("http://storian.esy.es/api/get-stories-length", {}).subscribe(
+      data => {
+        this.config['stories-read']['db_count'] = data.json();
+      },
+      error => {
+        console.log('error getting length-collection',error)
+      });
   }
 
 }

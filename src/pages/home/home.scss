@@ -5,8 +5,8 @@
     background-size: cover;
     .editor-story{
       background: transparent;
-      margin: 0 auto;
-      width: 200px;
+      margin: calc(50vh - 215px) auto;
+      width: 265px;
       text-align: center;
 
       ion-item, ion-list-header, ion-label{
@@ -18,11 +18,20 @@
         font-size: 3rem;
         width: 250px;
       }
+      .input-name {
+         -webkit-animation-delay: 0.2s;
+      }
+      .input-type {
+         -webkit-animation-delay: 0.5s;
+      }
+      .input-button {
+         -webkit-animation-delay: 0.8s;
+      }
     }
-  ion-icon[name="menu"] {
-    font-size: 5vmax;
-    color: #605a81;
-  }
+    ion-icon[name="menu"] {
+      font-size: 5vmax;
+      color: #605a81;
+    }
   }
 
 }

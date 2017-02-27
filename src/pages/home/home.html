@@ -1,19 +1,83 @@
 <ion-content padding>
   <ion-icon name="menu" icon-only menuToggle large></ion-icon>
-  <ion-list class="editor-story" >
-    <ion-list-header>
-    Personaje #1
-  </ion-list-header>
-    <ion-item>
-      <ion-label color="primary" floating>Nombre</ion-label>
-      <ion-input></ion-input>
+  <!-- Character 1 -->
+  <ion-list *ngIf="select == 'ch1'" id="ch1Area" class="editor-story">
+    <ion-list-header class="animated bounceInDown">{{ "STORY.character" | translate}} 1</ion-list-header>
+    <ion-item id="name-ch1" class="input-name animated bounceInUp">
+      <ion-label color="primary" floating>{{ "STORY.name" | translate}}</ion-label>
+      <ion-input type="text" [value]="character1.name" (change)="character1.name = $event.target.value"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label color="primary" floating>Tipo</ion-label>
-      <ion-input></ion-input>
+    <ion-item id="type-ch1" class="input-type animated bounceInUp">
+      <ion-label color="primary" floating>{{ "STORY.type" | translate}}</ion-label>
+      <ion-input type="text" [value]="character1.type  | lowercase" (change)="character1.type = $event.target.value"></ion-input>
     </ion-item>
-    <ion-item>
-        <button ion-button item-right>continuar</button>
+    <ion-item class="input-button animated bounceInLeft" (click)="checkCH1()">
+      <button ion-button item-right>{{ "STORY.next" | translate}}</button>
     </ion-item>
   </ion-list>
+  <!-- Character 2 -->
+  <ion-list *ngIf="select == 'ch2'" id="ch2Area" class="editor-story">
+    <ion-list-header class="animated bounceInDown">{{ "STORY.character" | translate}} 2</ion-list-header>
+    <ion-item id="name-ch2" class="input-name animated bounceInUp">
+      <ion-label color="primary" floating>{{ "STORY.name" | translate}}</ion-label>
+      <ion-input type="text" [value]="character2.name" (change)="character2.name = $event.target.value"></ion-input>
+    </ion-item>
+    <ion-item id="type-ch2" class="input-type animated bounceInUp">
+      <ion-label color="primary" floating>{{ "STORY.type" | translate}}</ion-label>
+      <ion-input type="text" type="text" [value]="character2.type  | lowercase" (change)="character2.type = $event.target.value"></ion-input>
+    </ion-item>
+    <ion-item class="input-button animated bounceInLeft">
+      <button ion-button item-left>{{ "STORY.back" | translate}}</button>
+      <button ion-button item-right (click)="checkCH2()">{{ "STORY.next" | translate}}</button>
+    </ion-item>
+  </ion-list>
+  <!-- Place 2 -->
+  <ion-list *ngIf="select == 'place'" id="placeArea" class="editor-story">
+    <ion-list-header class="animated bounceInDown">{{ "STORY.place" | translate}}</ion-list-header>
+    <ion-item class="input-type animated bounceInUp">
+      <ion-label color="primary">{{ "STORY.choosePlace" | translate}}</ion-label>
+      <ion-select [(ngModel)]="placeSelected">
+        <ion-option value="Castle">Castle</ion-option>
+        <ion-option value="Beach">Beach</ion-option>
+        <ion-option value="Library">Library</ion-option>
+        <ion-option value="Cave">Cave</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="input-button animated bounceInLeft">
+      <button ion-button item-left>{{ "STORY.back" | translate}}</button>
+      <button ion-button item-right (click)="createStory()">{{ "STORY.createStory" | translate}}</button>
+    </ion-item>
+  </ion-list>
+  <!-- STORY -->
+  <ion-card *ngIf="select == 'story'">
+    <img src="assets/img/castle.jpg" />
+    <ion-card-content>
+      <ion-card-title>
+        {{story.title}}
+      </ion-card-title>
+      <p>
+        {{story.story}}
+      </p>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='star'></ion-icon>
+          Favorite
+        </button>
+      </ion-col>
+      <ion-col no-padding text-center>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='musical-notes'></ion-icon>
+          Listen
+        </button>
+      </ion-col>
+      <ion-col no-padding text-right>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

@@ -33,17 +33,20 @@ export class MyApp {
 
     let musicVolume: number = 0.4;
 
-    // On first time, save config
+    // Load config
     config.getConfig().then(
       (data) => {
-        console.log(data);
-          translate.use(data['language']);
+        config.updateCollection();
+        translate.use(data['language']);
+        if (this.platform.is('cordova')) {
           NativeAudio.preloadComplex('main-ambient', 'assets/sound/music-background.mp3', musicVolume, 1, 1).then(
             function () {
               if (config.getSoundUser()) {
                 NativeAudio.play('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
               }
             }.bind(this));
+        }
+        console.log('user-config', config)
       },
       e => {
         console.log('error getting config', e);

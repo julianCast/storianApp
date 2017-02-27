@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Platform } from 'ionic-angular';
 import { Globalization } from "ionic-native";
 
@@ -9,7 +8,6 @@ export class LanguageService {
   public langConfig: any;
 
   constructor(
-    private http: Http,
     private platform: Platform
   ) {}
 

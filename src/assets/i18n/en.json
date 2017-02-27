@@ -14,5 +14,15 @@
     "language": "Language",
     "sound": "Sound",
     "nightMode": "Night Mode"
+  },
+  "STORY": {
+    "name": "Name",
+    "type": "Type",
+    "character": "Character",
+    "next": "Next",
+    "back": "Back",
+    "place": "Place",
+    "choosePlace": "Choose one",
+    "createStory": "Create Story"
   }
 }

@@ -43,10 +43,6 @@ export class SettingsPage {
 
   changeNightMode() {
     this.config.nightMode = this.nightMode;
-    this.config.setConfigAtt("night-mode", this.nightMode)
+    this.config.setConfigAtt("night-mode", this.nightMode);
   }
-
-
-
-
 }

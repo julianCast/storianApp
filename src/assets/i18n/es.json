@@ -14,5 +14,15 @@
     "language": "Idioma",
     "sound": "Sonido",
     "nightMode": "Modo Noche"
+  },
+    "STORY": {
+    "name": "Nombre",
+    "type": "Tipo",
+    "character": "Personaje",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "place": "Lugar",
+    "choosePlace": "Elige uno",
+    "createStory": "Crear Historia"
   }
 }
