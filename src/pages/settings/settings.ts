@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuController, Nav } from 'ionic-angular';
 import { ConfigService } from '../../providers/config-service/config-service';
-import { TranslateService } from "ng2-translate";
+import { TranslateService } from "@ngx-translate/core";
 import { HomePage } from '../home/home';
 
 @Component({
@@ -9,7 +9,7 @@ import { HomePage } from '../home/home';
   selector: '.settings-page'
 })
 export class SettingsPage {
-  private userLanguage: string;
+  protected userLanguage: string;
   private userSound: boolean;
   private nightMode: boolean;
 
@@ -19,10 +19,7 @@ export class SettingsPage {
     public config: ConfigService,
     public translate: TranslateService
   ) {
-    this.menu.swipeEnable(true, "sideMenu");
-    this.userSound = this.config.getSoundUser();
-    this.userLanguage = this.config.getLanguageUser();
-    this.nightMode = this.config.getNightModeUser();
+    
   }
 
   goHome() {
@@ -44,5 +41,12 @@ export class SettingsPage {
   changeNightMode() {
     this.config.nightMode = this.nightMode;
     this.config.setConfigAtt("night-mode", this.nightMode);
+  }
+
+  ionViewWillEnter(){
+    this.menu.swipeEnable(true, "sideMenu");
+    this.userSound = this.config.getSoundUser();
+    this.userLanguage = this.config.getLanguageUser();
+    this.nightMode = this.config.getNightModeUser();
   }
 }

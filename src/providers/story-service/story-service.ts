@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import { Platform } from 'ionic-angular';
-import { ConfigService } from '../config-service/config-service';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
+//import { ConfigService } from '../config-service/config-service';
 
 @Injectable()
 export class StoryService {
@@ -9,20 +8,19 @@ export class StoryService {
   public langConfig: any;
 
   constructor(
-    private http: Http,
-    private platform: Platform,
-    private config: ConfigService
+    private http: HttpClient
   ) { }
 
   getStory(character1, character2, place) {
     return new Promise((resolve, reject) => {
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
-      let lang = this.config.getLanguageUser();
+      let headers = {'Content-Type':'application/x-www-form-urlencoded'}
+
+
+      // Uncomment whenever we use languages let lang = this.config.getLanguageUser();
       let data = "nameP1="+character1.name+"&typeP1="+character1.type+"&nameP2="+character2.name+"&typeP2="+character2.type+"&place="+place+"&lang=es"
-      this.http.post("http://storian.esy.es/api/get-story", data, { headers: headers }).subscribe(
+      this.http.post("http://storian.esy.es/api/get-story", data, { headers: new HttpHeaders(headers) }).subscribe(
         data => {
-          resolve(data.json());
+          resolve(data);
         },
         error => {
           console.log('error getting length-collection', error)

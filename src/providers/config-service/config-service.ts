@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import { NativeAudio } from 'ionic-native';
-import { TranslateService } from 'ng2-translate/ng2-translate';
+import { Storage } from '@ionic/storage'
+import { NativeAudio } from '@ionic-native/native-audio';
+import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../language-service/language-service';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ConfigService {
@@ -22,10 +22,11 @@ export class ConfigService {
   };
 
   constructor(
-    private storage: Storage,
+    protected storage: Storage,
     private translate: TranslateService,
     public language: LanguageService,
-    public http: Http,
+    public http: HttpClient,
+    private nativeAudio: NativeAudio
   ) {
     // Initial userConfig
 
@@ -60,7 +61,7 @@ export class ConfigService {
               // Set the default language for translation strings, and the current language.
               this.language.selectBestLanguage().then(
                 done => {
-                  //this.translate.use(this.language.langSelected);
+                  this.translate.use(this.language.langSelected);
                   this.setConfigAtt("language", this.language.langSelected);
                   resolve(this.config);
                 },
@@ -85,10 +86,10 @@ export class ConfigService {
         this.config["sound"] = value;
         if (value) {
           console.log('sound enabled')
-          NativeAudio.play('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
+          this.nativeAudio.play('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
         } else {
           console.log('sound disabled')
-          NativeAudio.stop('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
+          this.nativeAudio.stop('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
         }
         break;
       case "night-mode":
@@ -106,7 +107,7 @@ export class ConfigService {
   updateCollection() {
     this.http.get("http://storian.esy.es/api/get-stories-length", {}).subscribe(
       data => {
-        this.config['stories-read']['db_count'] = data.json();
+        //this.config['stories-read']['db_count'] = data.json();
       },
       error => {
         console.log('error getting length-collection',error)

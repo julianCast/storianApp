@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
-import { StatusBar, Splashscreen, NativeAudio } from 'ionic-native';
-import { TranslateService } from 'ng2-translate/ng2-translate';
+import { NativeAudio } from '@ionic-native/native-audio';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { TranslateService } from '@ngx-translate/core';
 import { IntroPage } from '../pages/intro/intro';
 import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
@@ -21,7 +23,10 @@ export class MyApp {
     private platform: Platform,
     private translate: TranslateService,
     public language: LanguageService,
-    public config: ConfigService
+    public config: ConfigService,
+    private nativeAudio: NativeAudio,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen
   ) {
 
     // Pages showed on #sideMenu
@@ -37,12 +42,12 @@ export class MyApp {
     config.getConfig().then(
       (data) => {
         config.updateCollection();
-        translate.use(data['language']);
+        this.translate.use(data['language']);
         if (this.platform.is('cordova')) {
-          NativeAudio.preloadComplex('main-ambient', 'assets/sound/music-background.mp3', musicVolume, 1, 1).then(
+          this.nativeAudio.preloadComplex('main-ambient', 'assets/sound/music-background.mp3', musicVolume, 1, 1).then(
             function () {
               if (config.getSoundUser()) {
-                NativeAudio.play('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
+                this.nativeAudio.play('main-ambient').then(function (msg) { console.info(msg) }, function (msg) { console.info(msg) });
               }
             }.bind(this));
         }
@@ -54,13 +59,13 @@ export class MyApp {
     )
 
 
-    translate.setDefaultLang('es');
+    this.translate.setDefaultLang('es');
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
 
   }

@@ -25,7 +25,8 @@ export class HomePage {
   }
   constructor(
     public menu: MenuController,
-    public storyService: StoryService
+    public storyService: StoryService,
+    private tts: TextToSpeech
     ){
     this.menu.swipeEnable(true, "sideMenu");
   }
@@ -81,17 +82,50 @@ export class HomePage {
   createStory() {
     this.storyService.getStory(this.character1, this.character2, this.placeSelected).then(
       data => {
-        console.log('dataaaaaaaaaaaaaaaaaaaaaa',data);
         this.story.title = data['title'];
         this.story.story = data['story'];
-      this.select = 'story';
-
-
+        this.select = 'story';
       },
       error => {
 
       }
     )
+  }
+
+  listenStory()
+  {
+    let data = {
+      text: this.story.title,
+      locale: 'es-ES',
+      rate: 1.0
+    }
+   
+    this.tts.speak(data)
+    .then(() => console.log('Success'))
+    .catch((reason: any) => console.log(reason));
+
+    setTimeout(() => {
+      let data = {
+        text: this.story.story,
+        locale: 'es-ES',
+        rate: 1.0
+      }
+      this.tts.speak(data)
+        .then(() => console.log('Success'))
+        .catch((reason: any) => console.log(reason));
+    }, 1000);
+  }
+
+  ionViewDidEnter(){
+    let data = {
+      text: 'Tu cuento esta listo',
+      locale: 'es-ES',
+      rate: 1.0
+    }
+   
+    this.tts.speak(data)
+    .then(() => console.log('Success'))
+    .catch((reason: any) => console.log(reason));
   }
 
 
