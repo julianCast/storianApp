@@ -1,5 +1,5 @@
 <ion-content padding>
-  <ion-icon name="menu" icon-only menuToggle large></ion-icon>
+ <!--  <ion-icon name="menu" icon-only menuToggle large></ion-icon> -->
   <!-- Character 1 -->
   <ion-list *ngIf="select == 'ch1'" id="ch1Area" class="editor-story">
     <ion-list-header class="animated bounceInDown">{{ "STORY.character" | translate}} 1</ion-list-header>
@@ -49,17 +49,15 @@
     </ion-item>
   </ion-list>
   <!-- STORY -->
-  <ion-card *ngIf="select == 'story'">
-    <img src="assets/img/castle.jpg" />
+  <ion-card class="story-container"*ngIf="select == 'story'">
+    <img src="assets/img/sample.png" />
+    <div class="card-title" >{{story.title | uppercase}}</div>
     <ion-card-content>
-      <ion-card-title>
-        {{story.title}}
-      </ion-card-title>
       <p>
         {{story.story}}
       </p>
     </ion-card-content>
-    <ion-row no-padding>
+    <ion-row class="actions" no-padding>
       <ion-col no-padding>
         <button ion-button clear small color="danger" icon-left>
           <ion-icon name='star'></ion-icon>

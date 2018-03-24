@@ -25,8 +25,7 @@ export class HomePage {
   }
   constructor(
     public menu: MenuController,
-    public storyService: StoryService,
-    private tts: TextToSpeech
+    public storyService: StoryService
     ){
     this.menu.swipeEnable(true, "sideMenu");
   }
@@ -99,21 +98,6 @@ export class HomePage {
       locale: 'es-ES',
       rate: 1.0
     }
-   
-    this.tts.speak(data)
-    .then(() => console.log('Success'))
-    .catch((reason: any) => console.log(reason));
-
-    setTimeout(() => {
-      let data = {
-        text: this.story.story,
-        locale: 'es-ES',
-        rate: 1.0
-      }
-      this.tts.speak(data)
-        .then(() => console.log('Success'))
-        .catch((reason: any) => console.log(reason));
-    }, 1000);
   }
 
   ionViewDidEnter(){
@@ -122,10 +106,9 @@ export class HomePage {
       locale: 'es-ES',
       rate: 1.0
     }
-   
-    this.tts.speak(data)
-    .then(() => console.log('Success'))
-    .catch((reason: any) => console.log(reason));
+    this.story.title ="El guerrero de Sumatra";
+    this.story.story = "Los Kalabubu poseen una forma circular con uña diámetro desde los 22 hasta los 25 centímetros. El grosor del kalabubu varía, siendo la parte central la más gruesa y luego gradualmente adelgazándose hacia ambos fines. Las puntas de los fines están conectadas para formar un disco hecho usualmente de latón, y en raras ocasiones oro. El marco interno del collar esta hecho de un alambre de hierro o latón que es atado al final. Este marco representa la gran serpiente dorada de la mitología de la isla. ";
+    this.select = 'story';
   }
 
 

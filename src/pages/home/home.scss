@@ -1,7 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 .home-page {
   .scroll-content {
-    background: url("../assets/img/background-forest.jpg");
+    //background: url("../assets/img/background-forest.jpg");
+    background-image: linear-gradient(to right bottom, #f9efe1, #f7ebdd, #f5e8d8, #f4e4d4, #f2e0d0);
     background-size: cover;
     .editor-story{
       background: transparent;
@@ -33,5 +34,44 @@
       color: #605a81;
     }
   }
+  ion-card.story-container {
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    .card-title {
+      position: absolute;
+      top: 58px;
+      left: 0;
+      font-size: 1.2em;
+      width: 100%;
+      font-weight: bold;
+      color: #FDF6F5;
+      text-align: center;
+      font-family: "Tahoma", Geneva, sans-serif;
+    }
+  }
+  ion-card-content {
+    background-image: linear-gradient(to bottom, #fbf8f4, #fbf8f3, #faf7f2, #faf7f2, #f9f6f1);
+    p {
+      color: #81898F;
+      line-height: 2;
+    }
+    p::first-letter { 
+      color: #E68C7B;
+      float: left;
+      font-family: Georgia;
+      font-size: 60px;
+      line-height: 50px;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
+    }
+  }
+  .actions {
+    background: #FBF8F4;
+    button {
+      color: #81898F;
+    }
+  }
+  
 
 }
