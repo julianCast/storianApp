@@ -44,6 +44,7 @@ export class MyApp {
         config.updateCollection();
         this.translate.use(data['language']);
         if (this.platform.is('cordova')) {
+          this.nativeAudio.preloadComplex('ding-selected', 'assets/sound/ding.mp3', 0.3, 1, 1)
           this.nativeAudio.preloadComplex('main-ambient', 'assets/sound/music-background.mp3', musicVolume, 1, 1).then(
             function () {
               if (config.getSoundUser()) {
@@ -64,7 +65,7 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });
 

@@ -1,59 +1,186 @@
 <ion-content padding>
+  
  <!--  <ion-icon name="menu" icon-only menuToggle large></ion-icon> -->
   <!-- Character 1 -->
-  <ion-list *ngIf="select == 'ch1'" id="ch1Area" class="editor-story">
-    <ion-list-header class="animated bounceInDown">{{ "STORY.character" | translate}} 1</ion-list-header>
-    <ion-item id="name-ch1" class="input-name animated bounceInUp">
-      <ion-label color="primary" floating>{{ "STORY.name" | translate}}</ion-label>
-      <ion-input type="text" [value]="character1.name" (change)="character1.name = $event.target.value"></ion-input>
-    </ion-item>
-    <ion-item id="type-ch1" class="input-type animated bounceInUp">
-      <ion-label color="primary" floating>{{ "STORY.type" | translate}}</ion-label>
-      <ion-input type="text" [value]="character1.type  | lowercase" (change)="character1.type = $event.target.value"></ion-input>
-    </ion-item>
-    <ion-item class="input-button animated bounceInLeft" (click)="checkCH1()">
-      <button ion-button item-right>{{ "STORY.next" | translate}}</button>
-    </ion-item>
-  </ion-list>
+  <ion-card [hidden]="dlgSelected != 'ch1'" id="ch1Area" class="animated bounceInRight editor-story" >
+    <ion-card-content>
+      <ion-icon class="icon-selection" name="contact" ></ion-icon>
+      <h3>Personaje principal</h3>
+      <hr>
+      <ion-item>
+        <ion-input type="text" [value]="character1.name" placeholder="{{ 'STORY.name' | translate | uppercase}}" (change)="character1.name = $event.target.value"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [value]="character1.type" placeholder="{{ 'STORY.type' | translate | uppercase}}" (change)="character1.type = $event.target.value"></ion-input>
+      </ion-item>
+      <hr>
+      <p>Puede ser un dragón, un escritor..</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab middle right edge [hidden]="dlgSelected != 'ch1' || !character1.name || !character1.type">
+    <button ion-fab mini class="fadeIn animated" (click)="next()"> <ion-icon name="arrow-dropright"></ion-icon></button>
+  </ion-fab>
   <!-- Character 2 -->
-  <ion-list *ngIf="select == 'ch2'" id="ch2Area" class="editor-story">
-    <ion-list-header class="animated bounceInDown">{{ "STORY.character" | translate}} 2</ion-list-header>
-    <ion-item id="name-ch2" class="input-name animated bounceInUp">
-      <ion-label color="primary" floating>{{ "STORY.name" | translate}}</ion-label>
-      <ion-input type="text" [value]="character2.name" (change)="character2.name = $event.target.value"></ion-input>
-    </ion-item>
-    <ion-item id="type-ch2" class="input-type animated bounceInUp">
-      <ion-label color="primary" floating>{{ "STORY.type" | translate}}</ion-label>
-      <ion-input type="text" type="text" [value]="character2.type  | lowercase" (change)="character2.type = $event.target.value"></ion-input>
-    </ion-item>
-    <ion-item class="input-button animated bounceInLeft">
-      <button ion-button item-left>{{ "STORY.back" | translate}}</button>
-      <button ion-button item-right (click)="checkCH2()">{{ "STORY.next" | translate}}</button>
-    </ion-item>
-  </ion-list>
-  <!-- Place 2 -->
-  <ion-list *ngIf="select == 'place'" id="placeArea" class="editor-story">
-    <ion-list-header class="animated bounceInDown">{{ "STORY.place" | translate}}</ion-list-header>
-    <ion-item class="input-type animated bounceInUp">
-      <ion-label color="primary">{{ "STORY.choosePlace" | translate}}</ion-label>
-      <ion-select [(ngModel)]="placeSelected">
-        <ion-option value="Castle">Castle</ion-option>
-        <ion-option value="Beach">Beach</ion-option>
-        <ion-option value="Library">Library</ion-option>
-        <ion-option value="Cave">Cave</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item class="input-button animated bounceInLeft">
-      <button ion-button item-left>{{ "STORY.back" | translate}}</button>
-      <button ion-button item-right (click)="createStory()">{{ "STORY.createStory" | translate}}</button>
-    </ion-item>
-  </ion-list>
+  <ion-card [hidden]="dlgSelected != 'ch2'" id="ch2Area" class="animated bounceInRight editor-story" >
+    <ion-card-content>
+      <ion-icon class="icon-selection" name="people" ></ion-icon>
+      <h3>Personaje secundario</h3>
+      <hr>
+      <ion-item>
+        <ion-input type="text" [value]="character2.name" placeholder="{{ 'STORY.name' | translate | uppercase}}" (change)="character2.name = $event.target.value"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [value]="character2.type" placeholder="{{ 'STORY.type' | translate | uppercase}}" (change)="character2.type = $event.target.value"></ion-input>
+      </ion-item>
+      <hr>
+      <p>Se original..</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab middle left edge [hidden]="dlgSelected != 'ch2'" >
+    <button ion-fab mini class="fadeIn animated ch2" (click)="back()"> <ion-icon name="arrow-dropleft"></ion-icon></button>
+  </ion-fab>
+  <ion-fab middle right edge [hidden]="dlgSelected != 'ch2' || !character1.name || !character2.type">
+    <button ion-fab mini class="fadeIn animated" (click)="next()"> <ion-icon name="arrow-dropright"></ion-icon></button>
+  </ion-fab>
+  <!-- Place -->
+  <ion-card [hidden]="dlgSelected != 'place'" id="placeArea" class="animated bounceInRight editor-story place" >
+    <ion-card-content>
+      <ion-icon class="icon-selection" name="map" ></ion-icon>
+      <h3>{{ "STORY.place" | translate}}</h3>
+      <hr>
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectPlace('lighthouse')" [ngClass]="{'selected animated pulse': placeSelected == 'lighthouse' }">
+          <img src="assets/img/places/001-beach.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('vulcano')" [ngClass]="{'selected animated pulse': placeSelected == 'vulcano' }">
+          <img src="assets/img/places/002-nature.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('sea')" [ngClass]="{'selected animated pulse': placeSelected == 'sea' }">
+          <img src="assets/img/places/003-whale.png" >
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectPlace('city')" [ngClass]="{'selected animated pulse': placeSelected == 'city' }">
+          <img src="assets/img/places/004-cityscape.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('snow')" [ngClass]="{'selected animated pulse': placeSelected == 'snow' }">
+          <img src="assets/img/places/005-iceberg.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('home')" [ngClass]="{'selected animated pulse': placeSelected == 'home' }">
+          <img src="assets/img/places/007-home.png" >
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectPlace('beach')" [ngClass]="{'selected animated pulse': placeSelected == 'beach' }">
+          <img src="assets/img/places/006-beach-1.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('waterfall')" [ngClass]="{'selected animated pulse': placeSelected == 'waterfall' }">
+          <img src="assets/img/places/010-waterfall.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('river')" [ngClass]="{'selected animated pulse': placeSelected == 'river' }">
+          <img src="assets/img/places/011-river.png" >
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectPlace('desert')" [ngClass]="{'selected animated pulse': placeSelected == 'desert' }">
+          <img src="assets/img/places/008-desert.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('forest')" [ngClass]="{'selected animated pulse': placeSelected == 'forest' }">
+          <img src="assets/img/places/009-spruce.png" >
+        </ion-col>
+        <ion-col (click) = "selectPlace('castle')" [ngClass]="{'selected animated pulse': placeSelected == 'castle' }">
+          <img src="assets/img/places/012-castle.png" >
+        </ion-col>
+      </ion-row>
+      <hr>
+      <p>
+        <span *ngIf="!placeSelected">Un lugar para la aventura...</span>
+        <span *ngIf="placeSelected">{{transPlaceDescription()}}</span>
+      </p>
+      </ion-card-content>
+  </ion-card>
+  <ion-fab middle left edge [hidden]="dlgSelected != 'place'" >
+    <button ion-fab mini class="fadeIn animated expand-left" (click)="back()"> <ion-icon name="arrow-dropleft"></ion-icon></button>
+  </ion-fab>
+  <ion-fab middle right edge [hidden]="dlgSelected != 'place' || !placeSelected">
+    <button ion-fab mini class="fadeIn animated expand-right" (click)="next()"> <ion-icon name="arrow-dropright"></ion-icon></button>
+  </ion-fab>
+  
+  <!-- Object -->
+  <ion-card [hidden]="dlgSelected != 'object'" id="objectArea" class="animated bounceInRight editor-story place" >
+    <ion-card-content>
+      <ion-icon class="icon-selection" name="key" ></ion-icon>
+      <h3>{{ "STORY.object" | translate}}</h3>
+      <hr>
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectObject('arch')" [ngClass]="{'selected animated pulse': objectSelected == 'arch' }">
+          <img src="assets/img/objects/arch.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('backpack')" [ngClass]="{'selected animated pulse': objectSelected == 'backpack' }">
+          <img src="assets/img/objects/backpack.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('chest')" [ngClass]="{'selected animated pules': objectSelected == 'chest' }">
+          <img src="assets/img/objects/chest.png" >
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectObject('compass')" [ngClass]="{'selected animated pules': objectSelected == 'compass' }">
+          <img src="assets/img/objects/compass.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('diamond')" [ngClass]="{'selected animated pulse': objectSelected == 'diamond' }">
+          <img src="assets/img/objects/diamond.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('flashlight')" [ngClass]="{'selected animated pulse': objectSelected == 'flashlight' }">
+          <img src="assets/img/objects/flashlight.png" >
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectObject('key')" [ngClass]="{'selected animated pulse': objectSelected == 'key' }">
+          <img src="assets/img/objects/key.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('map')" [ngClass]="{'selected animated pulse': objectSelected == 'map' }">
+          <img src="assets/img/objects/map.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('pencil')" [ngClass]="{'selected animated pulse': objectSelected == 'pencil' }">
+          <img src="assets/img/objects/pencil.png" >
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="grid-selection">
+        <ion-col (click) = "selectObject('shield')" [ngClass]="{'selected animated pulse': objectSelected == 'shield' }">
+          <img src="assets/img/objects/shield.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('sword')" [ngClass]="{'selected animated pulse': objectSelected == 'sword' }">
+          <img src="assets/img/objects/sword.png" >
+        </ion-col>
+        <ion-col (click) = "selectObject('wand')" [ngClass]="{'selected animated pulse': objectSelected == 'wand' }">
+          <img src="assets/img/objects/wand.png" >
+        </ion-col>
+      </ion-row>
+      <hr>
+      <p>
+        <span *ngIf="!objectSelected">Un objeto para la aventura...</span>
+        <span *ngIf="objectSelected">{{transObjectDescription()}}</span>
+      </p>
+      </ion-card-content>
+  </ion-card>
+  <ion-fab middle left edge [hidden]="dlgSelected != 'object'" >
+    <button ion-fab mini class="fadeIn animated expand-left" (click)="back()"> <ion-icon name="arrow-dropleft"></ion-icon></button>
+  </ion-fab>
+  <ion-fab middle right edge [hidden]="dlgSelected != 'object' || !objectSelected">
+    <button ion-fab mini class="fadeIn animated expand-right" (click)="createStory()"> <ion-icon name="arrow-dropright"></ion-icon></button>
+  </ion-fab>
   <!-- STORY -->
-  <ion-card class="story-container"*ngIf="select == 'story'">
+  <ion-card class="story-container"*ngIf="dlgSelected == 'story'">
     <img src="assets/img/sample.png" />
     <div class="card-title" >{{story.title | uppercase}}</div>
     <ion-card-content>
-      <p>
+      <p class="story" >
         {{story.story}}
       </p>
     </ion-card-content>

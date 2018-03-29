@@ -22,7 +22,34 @@
     "next": "Next",
     "back": "Back",
     "place": "Place",
+    "object": "Object",
     "choosePlace": "Choose one",
-    "createStory": "Create Story"
+    "createStory": "Create Story",
+    "DLG_DESCRIPTIONS": {
+      "lighthouse_desc": "Un faro encantado",
+      "vulcano_desc": "Un peligroso volcán",
+      "sea_desc": "Bajo el mar",
+      "city_desc": "Una bulliciosa ciudad",
+      "snow_desc": "Nieve por todas partes",
+      "home_desc": "Tu casa",
+      "beach_desc": "Una playa coqueta",
+      "waterfall_desc": "Bajo una cascada",
+      "river_desc": "Un rio mágico",
+      "desert_desc": "En pleno desierto",
+      "forest_desc": "Un frondoso bosque",
+      "castle_desc": "Un castillo gigante",
+      "arch_desc": "Un arco de madera",
+      "backpack_desc": "Una mochila con mucho espacio",
+      "chest_desc": "Bajo el mar",
+      "compass_desc": "Una brújula mágica",
+      "diamond_desc": "Un valioso diamante",
+      "flashlight_desc": "Una linterna solar",
+      "key_desc": "Una llave dorada",
+      "map_desc": "Un antiguo mapa",
+      "pencil_desc": "Un lápiz",
+      "shield_desc": "Un escudo de acero",
+      "sword_desc": "Una espada valiria",
+      "wand_desc": "Una varita"
+    }
   }
 }
