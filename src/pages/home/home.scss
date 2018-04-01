@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 .home-page {
+ 
+  @media screen and (max-width: 42em) {
+    .wrap > div {
+      float: none;
+      width: 100%;
+    }
+  }
+  
   button.fab {
     background-color: transparent;
-    right: -13px;
+    right: -22px;
     box-shadow: none;
     color: #736c63;
-    &.ch2 {
-      right: 13px;
-    }
     &.expand-left {
-      right: 19px;
+      right: 22px;
     }
     &.expand-right {
       left: 19px;
@@ -22,7 +27,11 @@
     //background: url("../assets/img/background-forest.jpg");
     background-image: linear-gradient(to right bottom, #f9efe1, #f7ebdd, #f5e8d8, #f4e4d4, #f2e0d0);
     background-size: cover;
-    padding: 12px;
+    padding: 0 !important;
+    div.characters-container{
+      height:calc(30vw*2.9);
+      overflow: auto;
+    }
     h3 {
       font-size: 20px;
       margin-bottom: 20px;
@@ -35,36 +44,59 @@
       margin-bottom: 13px;
       box-shadow: inset 0 0 12px -2px #e4dfdb;
     }
+    button.genre {
+      width: 100%;
+      color: #726b62;
+      background: #f4efea;
+      border: none;
+      font-size: 2em;
+      &.selected {
+        &.male {
+          background: lightblue;
+        }
+        &.female {
+          background: pink;
+        }
+      }
+    }
 
     .grid-selection ion-col {
       border-radius: 10px;
       margin: 4px;
       background: #f1eeea;
       &.selected {
-        background: rgba(150, 50, 50, 0.43)
+        border: 1px solid #9f9f9f;
+        background: #dad2c6;
       }
     }
   
     .icon-selection {
-      display: inline-block;
-      font-size: 3em;
+      display: inline;
+      font-size: 1.2em;
       color: #726b62;
-      margin-bottom: 10px;
+      /* margin-bottom: 10px; */
+      top: 2px;
+      margin-right: 7px;
+      position: relative;
     }
     .editor-story {
       background: transparent;
-      margin: calc(50vh - 215px) auto;
-      width: 265px;
+      //margin: calc(50vh - 215px) auto;
+      width: 100%;
       text-align: center;
       &.place {
-        margin: calc(50vh - 276px) auto;
-        width: 285px;
+        //margin: calc(52vh - 276px) auto;
+        //width: 91%;
       }
 
       ion-item, ion-list-header, ion-label{
         background: transparent;
-        color: #605a81;
+        color: #736c63;
         font-weight: bold;
+      }
+      ion-input {
+        font-weight: bold;
+        color: #736c63;
       }
       ion-list-header {
         font-size: 3rem;
@@ -88,6 +120,7 @@
   ion-card {
     border-radius: 8px;
     font-family: 'Quicksand', sans-serif;
+    margin: 0;
     .card-title {
       position: absolute;
       top: 58px;

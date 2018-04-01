@@ -1,95 +1,125 @@
 import { Component } from '@angular/core';
-import { MenuController } from 'ionic-angular';
+import { MenuController, Keyboard } from 'ionic-angular';
 import { StoryService } from '../../providers/story-service/story-service';
 import { TranslateService } from '@ngx-translate/core';
 import { NativeAudio } from '@ionic-native/native-audio';
 
 declare var $: any;
+declare var DotNav: any
 
 @Component({
   templateUrl: 'home.html',
   selector: '.home-page'
 })
 export class HomePage {
-  public dlgSelected: string = 'ch1'
-  public character1 = {
-    name: "",
-    type: ""
-  };
-  public character2 = {
-    name: "",
-    type: ""
-  };
+  public dlgSelected: string = 'ch1';
+
+  public characters = {
+    'ch1' : {
+      name: "",
+      type: "",
+      genre: ""
+    },
+    'ch2' : {
+      name: "",
+      type: "",
+      genre: ""
+    }
+  }
   public placeSelected = "";
   public objectSelected = "";
   public story = {
     title: "",
     story: ""
   }
+  public editingType : boolean = false;
   constructor(
     public menu: MenuController,
     public storyService: StoryService,
     public translate: TranslateService,
-    public nativeAudio: NativeAudio
+    public nativeAudio: NativeAudio,
+    public keyboard: Keyboard
     ){
-    this.menu.swipeEnable(true, "sideMenu");
+    this.menu.swipeEnable(true, "sideMenu");   
   }
 
   back(): void
   {
+    this._cleanAnimationClasses();
     // From character 2 to character 1
     if (this.dlgSelected == "ch2") {
-      $('#ch2Area').addClass('bounceOutRight');
-      $('#ch1Area').removeClass('bounceOutLeft');
-      $('#ch1Area').removeClass('bounceInRight');
+      $('#charactersArea').addClass('animated bounceOutRight');
       setTimeout(function () {
-        $('#ch1Area').addClass('bounceInLeft');
-        this.dlgSelected = 'ch1';
-        $('#ch2Area').removeClass('bounceOutRight');
+        this._cleanAnimationClasses();
+        $('#charactersArea').addClass('animated bounceInLeft');   
+        this.dlgSelected = 'ch1';     
+        $('#ch1-dot').click();
       }.bind(this), 300);
     
-    // From place to character 2
-    } else if (this.dlgSelected == "place") {
-      $('#placeArea').addClass('bounceOutRight');
-      $('#ch2Area').removeClass('bounceOutLeft');
-      $('#ch2Area').removeClass('bounceInRight');
-      setTimeout(function () {
-        $('#ch2Area').addClass('bounceInLeft');
-        this.dlgSelected = 'ch2';
-        $('#placeArea').removeClass('bounceOutRight');
-      }.bind(this), 300);
-    // From object to place
+    // From object to character 2
     } else if (this.dlgSelected == "object") {
       $('#objectArea').addClass('bounceOutRight');
-      $('#placeArea').removeClass('bounceOutLeft');
-      $('#placeArea').removeClass('bounceInRight');
       setTimeout(function () {
-        $('#placeArea').addClass('bounceInLeft');
-        this.dlgSelected = 'place';
+        this.dlgSelected = 'ch2';
+        $('#charactersArea').ready(
+          () => {
+            this._cleanAnimationClasses();
+            $('#charactersArea').addClass('animated bounceInLeft');
+          }
+        );
         $('#objectArea').removeClass('bounceOutRight');
+        $('#ch2-dot').click();
       }.bind(this), 300);
-    }
+    
+    // From place to object
+    } else if (this.dlgSelected == "place") {
+      $('#placeArea').addClass('bounceOutRight');
+      setTimeout(function () {
+        $('#objectArea').removeClass('bounceInLeft bounceInRight bounceOutRight bounceOutLeft').addClass('bounceInLeft');
+        this.dlgSelected = 'object';
+        $('#placeArea').removeClass('bounceOutRight');
+        $('#object-dot').click();
+      }.bind(this), 300);
+  
+    } 
   }
 
   next(): void
   {
+    this._cleanAnimationClasses();
     if (this.dlgSelected == "ch1") {
-      $('#ch1Area').addClass('bounceOutLeft');
+      $('#charactersArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
         this.dlgSelected = 'ch2';
+        this._cleanAnimationClasses();
+      $('#charactersArea').addClass('animated bounceInRight');
+        $('#ch2-dot').click();
       }, 300);
+
     } else if (this.dlgSelected == "ch2") {
-      $('#ch2Area').addClass('bounceOutLeft');
+      $('#charactersArea').addClass('animated bounceOutLeft');
+      setTimeout(() => {
+        $('#charactersArea').addClass('bounceInLeft');
+        this.dlgSelected = 'object';
+        this._cleanAnimationClasses();
+        $('#objectArea').addClass('animated bounceInRight');
+        $('#object-dot').click();
+      }, 300);
+    } else if (this.dlgSelected == "object") {
+      $('#objectArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
         this.dlgSelected = 'place';
+        $('#placeArea').addClass('animated bounceInRight');
+        $('#place-dot').click();
       }, 300);
     } else if (this.dlgSelected == "place") {
-      $('#placeArea').addClass('bounceOutLeft');
+      $('#placeArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
-        this.dlgSelected = 'object';
+        this.dlgSelected = 'story';
       }, 300);
     }
   }
+
 
   selectPlace(place: string): void
   {
@@ -101,6 +131,25 @@ export class HomePage {
   {
     this.nativeAudio.play('ding-selected')
     this.objectSelected = object;
+  }
+
+  selectGenre(genre: string): void
+  {
+    this.nativeAudio.play('ding-selected')
+    this.characters[this.dlgSelected]['genre'] = genre
+    if ( this.characters[this.dlgSelected].name &&  this.characters[this.dlgSelected].type) {
+      setTimeout(() => {
+        this.next();
+      }, 500);
+    }
+  }
+  selectType(e,type: string): void
+  {
+    // this.nativeAudio.play('ding-selected')
+   let characterContainer = $(e.target).parent();
+    if (!characterContainer.hasClass('selected') && !characterContainer.hasClass('disabled')) {
+      this.characters[this.dlgSelected]['type'] = type;
+    }
   }
 
   transPlaceDescription(): string
@@ -115,7 +164,7 @@ export class HomePage {
 
   createStory() 
   {
-    this.storyService.getStory(this.character1, this.character2, this.placeSelected, this.objectSelected).then(
+    this.storyService.getStory(this.characters['ch1'], this.characters['ch2'], this.placeSelected, this.objectSelected).then(
       data => {
         this.story.title = data['title'];
         this.story.story = data['story'];
@@ -130,9 +179,28 @@ export class HomePage {
  
   }
 
+  _cleanAnimationClasses(): void
+  {
+    $('#charactersArea').removeClass('animated bounceOutLeft bounceOutRight bounceInLeft bounceInRight');
+  }
+
+
+  _loadNavigationDotSystem(): void
+  {
+    [].slice.call( document.querySelectorAll( '.dotstyle > ul' ) ).forEach( function( nav ) {
+      new DotNav( nav, {
+        callback : function( idx ) {
+          console.log( idx )
+        }
+      } );
+    } );
+  }
+  ionViewWillEnter(){
+   this._loadNavigationDotSystem();
+  }
   ionViewDidEnter(): void
   {
-    //this.dlgSelected = 'object';
+    //this.dlgSelected = 'place';
   /* UNCOMMENT THIS TO SEE STORY EXAMPLE  this.story.title ="El guerrero de Sumatra";
     this.story.story = "Los Kalabubu poseen una forma circular con uña diámetro desde los 22 hasta los 25 centímetros. El grosor del kalabubu varía, siendo la parte central la más gruesa y luego gradualmente adelgazándose hacia ambos fines. Las puntas de los fines están conectadas para formar un disco hecho usualmente de latón, y en raras ocasiones oro. El marco interno del collar esta hecho de un alambre de hierro o latón que es atado al final. Este marco representa la gran serpiente dorada de la mitología de la isla. El elefante africano de sabana se caracteriza por su gran cabeza, amplias orejas que cubren los hombros, trompa larga y musculosa, presencia de dos colmillos en la mandíbula superior, bien desarrollados en ambos sexos aunque mayores en los machos. En su ambiente natural viven entre 40 y 50 años, pues un elefante adulto no tiene enemigos naturales, con excepción del hombre. A partir de los 40 años sus últimos dientes se desgastan y les es imposible comer, y mueren. En cautiverio pueden vivir más tiempo por los cuidados y alimentación que reciben; pueden llegar a los 60 años. ";
     this.dlgSelected = 'story'; */

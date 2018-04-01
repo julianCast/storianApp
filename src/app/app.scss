@@ -32,6 +32,12 @@
 
   }
 }
+.scroll-content{overflow-y: hidden;}
+body {
+  *.disabled {
+    opacity: 0.3;
+  }
+}
 .alert-wrapper {
   background-image: linear-gradient(to bottom, #fbf8f4, #fbf8f3, #faf7f2, #faf7f2, #f9f6f1) !important;
   color: #726b62 !important;
