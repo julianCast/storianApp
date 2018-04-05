@@ -26,6 +26,15 @@ export class HomePage {
       genre: ""
     }
   }
+  public charactersFixedSex = {
+    'centaur' : "male",
+    'satyr' : "male",
+    'medusa' : "female",
+    'fairy' : "female",
+    'harpy' : "female",
+    'mermaid' : "female",
+    'witch' : "female"
+  };
   public placeSelected = "";
   public objectSelected = "";
   public story = {
@@ -133,22 +142,32 @@ export class HomePage {
     this.objectSelected = object;
   }
 
-  selectGenre(genre: string): void
+  selectGenre(e, genre: string): void
   {
-    this.nativeAudio.play('ding-selected')
-    this.characters[this.dlgSelected]['genre'] = genre
-    if ( this.characters[this.dlgSelected].name &&  this.characters[this.dlgSelected].type) {
-      setTimeout(() => {
-        this.next();
-      }, 500);
+    this.nativeAudio.play('ding-selected');
+    let genreContainer = $('#genre-buttons');
+ 
+    if (!genreContainer.hasClass('disabled')) {
+      this.characters[this.dlgSelected]['genre'] = genre;
+      if ( this.characters[this.dlgSelected].name &&  this.characters[this.dlgSelected].type) {
+        setTimeout(() => {
+          this.next();
+        }, 500);
+      }
     }
+  
   }
   selectType(e,type: string): void
   {
     // this.nativeAudio.play('ding-selected')
    let characterContainer = $(e.target).parent();
-    if (!characterContainer.hasClass('selected') && !characterContainer.hasClass('disabled')) {
+   if (!characterContainer.hasClass('selected') && !characterContainer.hasClass('disabled')) {
       this.characters[this.dlgSelected]['type'] = type;
+      if (this.genreIsFixed()) {
+        this.characters[this.dlgSelected]['genre'] =  this.charactersFixedSex[this.characters[this.dlgSelected].type];
+      } else {
+        this.characters[this.dlgSelected]['genre'] = "";
+      }
     }
   }
 
@@ -182,6 +201,13 @@ export class HomePage {
   _cleanAnimationClasses(): void
   {
     $('#charactersArea').removeClass('animated bounceOutLeft bounceOutRight bounceInLeft bounceInRight');
+  }
+
+  genreIsFixed(): boolean
+  {
+    if (this.dlgSelected == "ch1" || this.dlgSelected == "ch2") {
+      return this.charactersFixedSex[this.characters[this.dlgSelected].type];
+    }
   }
 
 
