@@ -42,171 +42,307 @@
             <hr>
             <div class="characters-container">
               <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'centaur')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'centaur'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'centaur') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'centaur') }">
-                  <img src="assets/img/characters/centaur.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'dinosaur')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'dinosaur'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'dinosaur') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'dinosaur') }">
-                  <img src="assets/img/characters/dinosaur.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'alien')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'alien'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'alien') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'alien') }">
-                  <img src="assets/img/characters/alien.svg" >
-                </ion-col>
-              </ion-row>
-        
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'medusa')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'medusa'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'medusa') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'medusa') }">
-                  <img src="assets/img/characters/medusa.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'cerberus')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'cerberus'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'cerberus') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'cerberus') }">
-                  <img src="assets/img/characters/cerberus.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'curupira')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'curupira'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'curupira') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'curupira') }">
-                  <img src="assets/img/characters/curupira.svg" >
-                </ion-col>
-              </ion-row>
-        
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'elf')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'elf'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'elf') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'elf') }">
-                  <img src="assets/img/characters/elf.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'dragon')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'dragon'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'dragon') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'dragon') }">
-                  <img src="assets/img/characters/dragon.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'cyclops')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'cyclops'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'cyclops') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'cyclops') }">
-                  <img src="assets/img/characters/cyclops.svg" >
-                </ion-col>
-              </ion-row>
-        
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'devil')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'devil'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'devil') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'devil') }">
-                  <img src="assets/img/characters/devil.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'zombie')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'zombie'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'zombie') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'zombie') }">
-                    <img src="assets/img/characters/zombie.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'fairy')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'fairy'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'fairy') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'fairy') }">
-                  <img src="assets/img/characters/fairy.svg" >
-                </ion-col>
-              </ion-row>
-
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'frankenstein')"  [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'frankenstein'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'frankenstein') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'frankenstein') }">
-                  <img src="assets/img/characters/frankenstein.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'genie')"  [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'genie'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'genie') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'genie') }" 
-                >
-                <img src="assets/img/characters/genie.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'ghost')"  [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'ghost'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'ghost') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'ghost') }">
-                  <img src="assets/img/characters/ghost.svg" >
-                </ion-col>
-              </ion-row>
-
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'goblin')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'goblin'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'goblin') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'goblin') }">
-                  <img src="assets/img/characters/goblin.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'gryphon')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'gryphon'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'gryphon') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'gryphon') }">
-                  <img src="assets/img/characters/gryphon.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'harpy')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'harpy'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'harpy') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'harpy') }">
-                  <img src="assets/img/characters/harpy.svg" >
-                </ion-col>
-              </ion-row>
-              
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'hydra')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'hydra'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'hydra') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'hydra') }">
-                  <img src="assets/img/characters/hydra.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'octopus')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'octopus'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'octopus') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'octopus') }">
-                  <img src="assets/img/characters/kraken.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'leprechaun')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'leprechaun'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'leprechaun') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'leprechaun') }">
-                  <img src="assets/img/characters/leprechaun.svg" >
-                </ion-col>
-              </ion-row>
-
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'yeti')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'yeti'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'yeti') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'yeti') }">
-                    <img src="assets/img/characters/yeti.svg" >
+                <ion-row>
+                  <ion-col (click) = "selectType($event,'cat')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'cat'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'cat') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'cat') }">
+                    <img src="assets/img/characters/cat.svg" >
                   </ion-col>
-                <ion-col (click) = "selectType($event,'mermaid')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'mermaid'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'mermaid') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'mermaid') }">
-                  <img src="assets/img/characters/mermaid.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'minotaur')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'minotaur'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'minotaur') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'minotaur') }">
-                  <img src="assets/img/characters/minotaur.svg" >
-                </ion-col>
-              </ion-row>
+                  <ion-col (click) = "selectType($event,'shark')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'shark'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'shark') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'shark') }">
+                    <img src="assets/img/characters/shark.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'fox')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'fox'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'fox') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'fox') }">
+                    <img src="assets/img/characters/fox.svg" >
+                  </ion-col>
+                </ion-row>
 
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'mushroom')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'mushroom'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'mushroom') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'mushroom') }">
-                  <img src="assets/img/characters/mushroom.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'narwhal')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'narwhal'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'narwhal') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'narwhal') }">
-                  <img src="assets/img/characters/narwhal.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'pegasus')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'pegasus'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'pegasus') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'pegasus') }">
-                  <img src="assets/img/characters/pegasus.svg" >
-                </ion-col>
-              </ion-row>
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'horse')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'horse'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'horse') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'horse') }">
+                    <img src="assets/img/characters/horse.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'snail')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'snail'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'snail') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'snail') }">
+                    <img src="assets/img/characters/snail.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'tiger')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'tiger'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'tiger') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'tiger') }">
+                    <img src="assets/img/characters/tiger.svg" >
+                  </ion-col>
+                </ion-row>
 
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'phoenix')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'phoenix'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'phoenix') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'phoenix') }">
-                  <img src="assets/img/characters/phoenix.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'puppet')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'puppet'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'puppet') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'puppet') }">
-                  <img src="assets/img/characters/pinocchio.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'pirate')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'pirate'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'pirate') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'pirate') }">
-                  <img src="assets/img/characters/pirate.svg" >
-                </ion-col>
-              </ion-row>
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'elephant')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'elephant'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'elephant') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'elephant') }">
+                    <img src="assets/img/characters/elephant.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'monkey')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'monkey'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'monkey') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'monkey') }">
+                    <img src="assets/img/characters/monkey.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'crocodile')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'crocodile'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'crocodile') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'crocodile') }">
+                    <img src="assets/img/characters/crocodile.svg" >
+                  </ion-col>
+                </ion-row>
 
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'robot')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'robot'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'robot') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'robot') }">
-                  <img src="assets/img/characters/robot.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'satyr')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'satyr'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'satyr') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'satyr') }">
-                  <img src="assets/img/characters/satyr.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'scarecrow')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'scarecrow'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'scarecrow') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'scarecrow') }">
-                  <img src="assets/img/characters/scarecrow.svg" >
-                </ion-col>
-              </ion-row>
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'eagle')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'eagle'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'eagle') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'eagle') }">
+                    <img src="assets/img/characters/eagle.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'seal')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'seal'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'seal') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'seal') }">
+                    <img src="assets/img/characters/seal.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'frog')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'frog'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'frog') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'frog') }">
+                    <img src="assets/img/characters/frog.svg" >
+                  </ion-col>
+                </ion-row>
 
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'tree')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'tree'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'tree') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'tree') }">
-                  <img src="assets/img/characters/tree.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'troll')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'troll'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'troll') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'troll') }">
-                  <img src="assets/img/characters/troll.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'unicorn')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'unicorn'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'unicorn') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'unicorn') }">
-                  <img src="assets/img/characters/unicorn.svg" >
-                </ion-col>
-              </ion-row>
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'pig')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'pig'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'pig') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'pig') }">
+                    <img src="assets/img/characters/pig.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'bee')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'bee'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'bee') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'bee') }">
+                    <img src="assets/img/characters/bee.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'penguin')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'penguin'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'penguin') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'penguin') }">
+                    <img src="assets/img/characters/penguin.svg" >
+                  </ion-col>
+                </ion-row>
 
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'warrior')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'warrior'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'warrior') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'warrior') }">
-                  <img src="assets/img/characters/valkyrie.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'vampire')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'vampire'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'vampire') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'vampire') }">
-                  <img src="assets/img/characters/vampire.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'werewolf')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'werewolf'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'werewolf') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'werewolf') }">
-                  <img src="assets/img/characters/werewolf.svg" >
-                </ion-col>
-              </ion-row>
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'owl')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'owl'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'owl') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'owl') }">
+                    <img src="assets/img/characters/owl.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'duck')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'duck'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'duck') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'duck') }">
+                    <img src="assets/img/characters/duck.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'lizard')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'lizard'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'lizard') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'lizard') }">
+                    <img src="assets/img/characters/lizard.svg" >
+                  </ion-col>
+                </ion-row>
 
-              <ion-row class="grid-selection">
-                <ion-col (click) = "selectType($event,'witch')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'witch'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'witch') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'witch') }">
-                  <img src="assets/img/characters/witch.svg" >
-                </ion-col>
-                <ion-col (click) = "selectType($event,'wizard')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'wizard'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'wizard') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'wizard') }">
-                  <img src="assets/img/characters/wizard.svg" >
-                </ion-col>
-                <ion-col></ion-col>
-             
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'giraffe')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'giraffe'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'giraffe') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'giraffe') }">
+                    <img src="assets/img/characters/giraffe.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'goat')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'goat'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'goat') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'goat') }">
+                    <img src="assets/img/characters/goat.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'zebra')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'zebra'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'zebra') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'zebra') }">
+                    <img src="assets/img/characters/zebra.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'chameleon')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'chameleon'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'chameleon') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'chameleon') }">
+                    <img src="assets/img/characters/chameleon.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'skunk')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'skunk'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'skunk') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'skunk') }">
+                    <img src="assets/img/characters/skunk.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'chipmunk')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'chipmunk'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'chipmunk') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'chipmunk') }">
+                    <img src="assets/img/characters/chipmunk.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'hedgehog')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'hedgehog'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'hedgehog') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'hedgehog') }">
+                    <img src="assets/img/characters/hedgehog.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'rat')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'rat'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'rat') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'rat') }">
+                    <img src="assets/img/characters/rat.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'dinosaur')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'dinosaur'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'dinosaur') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'dinosaur') }">
+                    <img src="assets/img/characters/dinosaur.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col (click) = "selectType($event,'lion')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'lion'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'lion') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'lion') }">
+                    <img src="assets/img/characters/lion.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'ant')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'ant'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'ant') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'ant') }">
+                    <img src="assets/img/characters/ant.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'worm')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'worm'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'worm') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'worm') }">
+                    <img src="assets/img/characters/worm.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col (click) = "selectType($event,'kangaroo')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'kangaroo'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'kangaroo') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'kangaroo') }">
+                    <img src="assets/img/characters/kangaroo.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'octopus')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'octopus'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'octopus') || (dlgSelected == 'octopus' && characters['ch1']['type'] == 'octopus') }">
+                    <img src="assets/img/characters/octopus.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'fish')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'fish'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'fish') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'fish') }">
+                    <img src="assets/img/characters/fish.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col (click) = "selectType($event,'bear')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'bear'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'bear') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'bear') }">
+                    <img src="assets/img/characters/bear.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'snake')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'snake'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'snake') || (dlgSelected == 'snake' && characters['ch1']['type'] == 'snake') }">
+                    <img src="assets/img/characters/snake.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'butterfly')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'butterfly'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'butterfly') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'butterfly') }">
+                    <img src="assets/img/characters/butterfly.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col (click) = "selectType($event,'chicken')" [ngClass]="{'selected animated tada': (characters[dlgSelected].type == 'chicken'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'chicken') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'chicken') }">
+                    <img src="assets/img/characters/chicken.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'spider')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'spider'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'spider') || (dlgSelected == 'spider' && characters['ch1']['type'] == 'spider') }">
+                    <img src="assets/img/characters/spider.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'witch')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'witch'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'witch') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'witch') }">
+                    <img src="assets/img/characters/witch.svg" >
+                  </ion-col>
+          
+                </ion-row>
+        
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'medusa')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'medusa'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'medusa') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'medusa') }">
+                    <img src="assets/img/characters/medusa.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'cerberus')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'cerberus'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'cerberus') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'cerberus') }">
+                    <img src="assets/img/characters/cerberus.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'curupira')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'curupira'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'curupira') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'curupira') }">
+                    <img src="assets/img/characters/curupira.svg" >
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'elf')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'elf'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'elf') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'elf') }">
+                    <img src="assets/img/characters/elf.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'dragon')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'dragon'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'dragon') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'dragon') }">
+                    <img src="assets/img/characters/dragon.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'cyclops')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'cyclops'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'cyclops') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'cyclops') }">
+                    <img src="assets/img/characters/cyclops.svg" >
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'devil')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'devil'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'devil') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'devil') }">
+                    <img src="assets/img/characters/devil.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'zombie')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'zombie'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'zombie') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'zombie') }">
+                      <img src="assets/img/characters/zombie.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'fairy')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'fairy'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'fairy') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'fairy') }">
+                    <img src="assets/img/characters/fairy.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'frankenstein')"  [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'frankenstein'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'frankenstein') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'frankenstein') }">
+                    <img src="assets/img/characters/frankenstein.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'genie')"  [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'genie'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'genie') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'genie') }" 
+                  >
+                  <img src="assets/img/characters/genie.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'ghost')"  [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'ghost'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'ghost') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'ghost') }">
+                    <img src="assets/img/characters/ghost.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'goblin')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'goblin'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'goblin') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'goblin') }">
+                    <img src="assets/img/characters/goblin.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'gryphon')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'gryphon'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'gryphon') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'gryphon') }">
+                    <img src="assets/img/characters/gryphon.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'harpy')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'harpy'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'harpy') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'harpy') }">
+                    <img src="assets/img/characters/harpy.svg" >
+                  </ion-col>
+                </ion-row>
+                
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'hydra')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'hydra'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'hydra') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'hydra') }">
+                    <img src="assets/img/characters/hydra.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'wizard')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'wizard'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'wizard') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'wizard') }">
+                    <img src="assets/img/characters/wizard.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'leprechaun')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'leprechaun'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'leprechaun') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'leprechaun') }">
+                    <img src="assets/img/characters/leprechaun.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'yeti')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'yeti'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'yeti') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'yeti') }">
+                      <img src="assets/img/characters/yeti.svg" >
+                    </ion-col>
+                  <ion-col (click) = "selectType($event,'mermaid')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'mermaid'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'mermaid') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'mermaid') }">
+                    <img src="assets/img/characters/mermaid.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'minotaur')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'minotaur'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'minotaur') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'minotaur') }">
+                    <img src="assets/img/characters/minotaur.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'mushroom')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'mushroom'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'mushroom') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'mushroom') }">
+                    <img src="assets/img/characters/mushroom.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'narwhal')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'narwhal'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'narwhal') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'narwhal') }">
+                    <img src="assets/img/characters/narwhal.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'pegasus')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'pegasus'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'pegasus') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'pegasus') }">
+                    <img src="assets/img/characters/pegasus.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'phoenix')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'phoenix'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'phoenix') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'phoenix') }">
+                    <img src="assets/img/characters/phoenix.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'puppet')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'puppet'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'puppet') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'puppet') }">
+                    <img src="assets/img/characters/pinocchio.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'pirate')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'pirate'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'pirate') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'pirate') }">
+                    <img src="assets/img/characters/pirate.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'robot')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'robot'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'robot') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'robot') }">
+                    <img src="assets/img/characters/robot.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'satyr')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'satyr'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'satyr') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'satyr') }">
+                    <img src="assets/img/characters/satyr.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'scarecrow')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'scarecrow'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'scarecrow') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'scarecrow') }">
+                    <img src="assets/img/characters/scarecrow.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'tree')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'tree'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'tree') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'tree') }">
+                    <img src="assets/img/characters/tree.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'troll')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'troll'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'troll') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'troll') }">
+                    <img src="assets/img/characters/troll.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'unicorn')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'unicorn'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'unicorn') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'unicorn') }">
+                    <img src="assets/img/characters/unicorn.svg" >
+                  </ion-col>
+                </ion-row>
+
+                <ion-row >
+                  <ion-col (click) = "selectType($event,'warrior')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'warrior'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'warrior') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'warrior') }">
+                    <img src="assets/img/characters/valkyrie.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'vampire')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'vampire'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'vampire') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'vampire') }">
+                    <img src="assets/img/characters/vampire.svg" >
+                  </ion-col>
+                  <ion-col (click) = "selectType($event,'werewolf')" [ngClass]="{'selected animated tada': ( characters[dlgSelected].type == 'werewolf'), 'disabled': (dlgSelected == 'ch1' && characters['ch2']['type'] == 'werewolf') || (dlgSelected == 'ch2' && characters['ch1']['type'] == 'werewolf') }">
+                    <img src="assets/img/characters/werewolf.svg" >
+                  </ion-col>
+                </ion-row>
               </ion-row>
             </div>
             <hr>
@@ -219,7 +355,6 @@
                 <button (click) = "selectGenre($event,'female')" [ngClass]="{'selected animated rubberBand': characters[dlgSelected].genre == 'female' }" class="genre female" ion-button outline> <ion-icon name="woman"></ion-icon></button>
               </ion-col>
             </ion-row>
-            <!--<ion-input (focus)="test()" (ionBlur)="blur()" type="text" [value]="character1.type" placeholder="{{ 'STORY.type' | translate | uppercase}}" (change)="character1.type = $event.target.value"></ion-input>-->    
           </ion-card-content>
         </ion-card>
   
@@ -231,49 +366,49 @@
             <hr>
             <ion-row class="grid-selection">
               <ion-col (click) = "selectPlace('lighthouse')" [ngClass]="{'selected animated pulse': placeSelected == 'lighthouse' }">
-                <img src="assets/img/places/001-beach.png" >
+                <img src="assets/img/places/lighthouse.svg" >
               </ion-col>
-              <ion-col (click) = "selectPlace('vulcano')" [ngClass]="{'selected animated pulse': placeSelected == 'vulcano' }">
-                <img src="assets/img/places/002-nature.png" >
+              <ion-col (click) = "selectPlace('volcano')" [ngClass]="{'selected animated pulse': placeSelected == 'volcano' }">
+                <img src="assets/img/places/volcano.svg" >
               </ion-col>
               <ion-col (click) = "selectPlace('sea')" [ngClass]="{'selected animated pulse': placeSelected == 'sea' }">
-                <img src="assets/img/places/003-whale.png" >
+                <img src="assets/img/places/sea.svg" >
               </ion-col>
             </ion-row>
 
             <ion-row class="grid-selection">
               <ion-col (click) = "selectPlace('city')" [ngClass]="{'selected animated pulse': placeSelected == 'city' }">
-                <img src="assets/img/places/004-cityscape.png" >
+                <img src="assets/img/places/cityscape.svg" >
               </ion-col>
-              <ion-col (click) = "selectPlace('snow')" [ngClass]="{'selected animated pulse': placeSelected == 'snow' }">
-                <img src="assets/img/places/005-iceberg.png" >
+              <ion-col (click) = "selectPlace('windmill')" [ngClass]="{'selected animated pulse': placeSelected == 'windmill' }">
+                <img src="assets/img/places/mill.svg" >
               </ion-col>
-              <ion-col (click) = "selectPlace('home')" [ngClass]="{'selected animated pulse': placeSelected == 'home' }">
-                <img src="assets/img/places/007-home.png" >
+              <ion-col (click) = "selectPlace('house')" [ngClass]="{'selected animated pulse': placeSelected == 'house' }">
+                <img src="assets/img/places/house.svg" >
               </ion-col>
             </ion-row>
 
             <ion-row class="grid-selection">
               <ion-col (click) = "selectPlace('beach')" [ngClass]="{'selected animated pulse': placeSelected == 'beach' }">
-                <img src="assets/img/places/006-beach-1.png" >
+                <img src="assets/img/places/beach.svg" >
               </ion-col>
               <ion-col (click) = "selectPlace('waterfall')" [ngClass]="{'selected animated pulse': placeSelected == 'waterfall' }">
-                <img src="assets/img/places/010-waterfall.png" >
+                <img src="assets/img/places/waterfall.svg" >
               </ion-col>
               <ion-col (click) = "selectPlace('river')" [ngClass]="{'selected animated pulse': placeSelected == 'river' }">
-                <img src="assets/img/places/011-river.png" >
+                <img src="assets/img/places/river.svg" >
               </ion-col>
             </ion-row>
 
             <ion-row class="grid-selection">
               <ion-col (click) = "selectPlace('desert')" [ngClass]="{'selected animated pulse': placeSelected == 'desert' }">
-                <img src="assets/img/places/008-desert.png" >
+                <img src="assets/img/places/desert.svg" >
               </ion-col>
               <ion-col (click) = "selectPlace('forest')" [ngClass]="{'selected animated pulse': placeSelected == 'forest' }">
-                <img src="assets/img/places/009-spruce.png" >
+                <img src="assets/img/places/forest.svg" >
               </ion-col>
               <ion-col (click) = "selectPlace('castle')" [ngClass]="{'selected animated pulse': placeSelected == 'castle' }">
-                <img src="assets/img/places/012-castle.png" >
+                <img src="assets/img/places/castle.svg" >
               </ion-col>
             </ion-row>
             <hr>
