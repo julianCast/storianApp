@@ -3,6 +3,7 @@ import { MenuController, Keyboard } from 'ionic-angular';
 import { StoryService } from '../../providers/story-service/story-service';
 import { TranslateService } from '@ngx-translate/core';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { CharacterModel  } from '../../models/character';
 
 declare var $: any;
 declare var DotNav: any
@@ -26,6 +27,8 @@ export class HomePage {
       genre: ""
     }
   }
+  public mainCharacter : CharacterModel;
+  public Secondarycharacter : CharacterModel;
   public charactersFixedSex = {
     'centaur' : "male",
     'satyr' : "male",
@@ -159,10 +162,15 @@ export class HomePage {
   }
   selectType(e,type: string): void
   {
-    // this.nativeAudio.play('ding-selected')
+
    let characterContainer = $(e.target).parent();
    if (!characterContainer.hasClass('selected') && !characterContainer.hasClass('disabled')) {
       this.characters[this.dlgSelected]['type'] = type;
+      this.mainCharacter =  new CharacterModel(
+        this.characters[this.dlgSelected]['type'],
+        this.characters[this.dlgSelected]['name'],
+        "es");
+        console.log(this.mainCharacter)
       if (this.genreIsFixed()) {
         this.characters[this.dlgSelected]['genre'] =  this.charactersFixedSex[this.characters[this.dlgSelected].type];
       } else {

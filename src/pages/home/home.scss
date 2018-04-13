@@ -32,6 +32,13 @@
       height:calc(30vw*2.9);
       overflow: auto;
     }
+    #message-tip {
+      color: #736c63;
+      position: relative;
+      text-align: center;
+      font-size: 2rem;
+      top: 36px;
+    }
     h3 {
       font-size: 20px;
       margin-bottom: 20px;
