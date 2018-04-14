@@ -50,6 +50,138 @@
       "shield_desc": "Un escudo de acero",
       "sword_desc": "Una espada valiria",
       "wand_desc": "Una varita"
+    },
+    "CHARACTERS": {
+      "cat" : {
+        "male": "gato",
+        "female": "gata"
+      },
+      "shark" : {
+        "male": "tiburón",
+        "female": "tiburona"
+      },
+      "fox" : {
+        "male": "zorro",
+        "female": "zorra"
+      },
+      "horse" : {
+        "male": "caballo",
+        "female": "yegua"
+      },
+      "snail"  :{
+        "male": "caracol",
+        "female": "caracola"
+      },
+      "tiger" : {
+        "male": "tigre",
+        "female": "tigresa"
+      },
+      "elephant" : {
+        "male": "elefante",
+        "female": "elefanta"
+      },
+      "monkey" : {
+        "male": "mono",
+        "female": "mona"
+      },
+      "crocodile" : "cocodrilo",
+      "spider" : "araña",
+      "seal" : "foca",
+      "frog" :{
+        "male": "sapo",
+        "female": "rana"
+      },
+      "pig" :{
+        "male": "cerdito",
+        "female": "cerdita"
+      },
+      "bee" : "avispa",
+      "penguin" : "pinguino",
+      "owl" :{
+        "male": "búho",
+        "female": "lechuza"
+      },
+      "duck" :{
+        "male": "pato",
+        "female": "pata"
+      },
+      "lizard" : "lagartija",
+      "giraffe" : "jirafa",
+      "goat" : "cabra",
+      "zebra" : "cebra",
+      "chameleon" : "camaleón",
+      "skunk" : "mofeta",
+      "chipmunk" : "ardilla",
+      "hedgehog" :{
+        "male": "erizo",
+        "female": "eriza"
+      },
+      "rat" :{
+        "male": "ratón",
+        "female": "ratita"
+      },
+      "dinosaur" : "t-rex",
+      "lion" :{
+        "male": "león",
+        "female": "leona"
+      },
+      "ant": "hormiga",
+      "worm": "lombriz",
+      "kangaroo": "kanguro",
+      "octopus": "pulpo",
+      "fish": "pececito",
+      "bear" :{
+        "male": "oso",
+        "female": "osa"
+      },
+      "snake": "serpiente",
+      "butterfly": "mariposa",
+      "chicken" :{
+        "male": "pollo",
+        "female": "pollita"
+      },
+      "werewolf" :{
+        "male": "hombre-lobo",
+        "female": "mujer-loba"
+      },
+      "wicth" : "bruja",
+      "medusa": "medusa",
+      "cerberus": "cerbero",
+      "caveman": "troglodita",
+      "elf" :{
+        "male": "elfo",
+        "female": "elfa"
+      },
+      "dragon": "dragón",
+      "cyclope": "cíclope",
+      "devil": "demonio",
+      "zombie": "zombie",
+      "vampire" :{
+        "male": "vampiro",
+        "female": "vampira"
+      },
+      "monster": "monstruo",
+      "genie": "genio",
+      "ghost": "fantasma",
+      "goblin": "goblin",
+      "amazon": "amazona",
+      "harpy": "arpía",
+      "wizard": "brujo",
+      "leprechaun": "duende",
+      "yeti": "yeti",
+      "mermaid": "sirena",
+      "minotaur": "minotauro",
+      "mushroom": "seta",
+      "narwhal": "narval",
+      "pegasus": "pegaso",
+      "unicorn": "unicornio",
+      "puppet": "marioneta",
+      "pirate": "pirata",
+      "robot": "robot",
+      "satyr": "sátiro",
+      "scarecrow": "espantapájaros",
+      "tree": "arbol",
+      "troll": "trol"
     }
    
  

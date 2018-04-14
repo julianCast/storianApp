@@ -28,7 +28,7 @@ export class HomePage {
     }
   }
   public mainCharacter : CharacterModel;
-  public Secondarycharacter : CharacterModel;
+  public secondaryCharacter : CharacterModel;
   public charactersFixedSex = {
     'centaur' : "male",
     'satyr' : "male",
@@ -99,7 +99,10 @@ export class HomePage {
   next(): void
   {
     this._cleanAnimationClasses();
+    // Main Character
     if (this.dlgSelected == "ch1") {
+      this.mainCharacter.format(this.characters["ch1"].name, this.characters["ch1"].genre);
+      console.log("asd", this.mainCharacter)
       $('#charactersArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
         this.dlgSelected = 'ch2';
@@ -107,8 +110,10 @@ export class HomePage {
       $('#charactersArea').addClass('animated bounceInRight');
         $('#ch2-dot').click();
       }, 300);
-
+    
+    // Secondary Character
     } else if (this.dlgSelected == "ch2") {
+      this.secondaryCharacter.format(this.characters["ch2"].name, this.characters["ch2"].genre);
       $('#charactersArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
         $('#charactersArea').addClass('bounceInLeft');
@@ -117,6 +122,7 @@ export class HomePage {
         $('#objectArea').addClass('animated bounceInRight');
         $('#object-dot').click();
       }, 300);
+    // Pick Object
     } else if (this.dlgSelected == "object") {
       $('#objectArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
@@ -124,6 +130,7 @@ export class HomePage {
         $('#placeArea').addClass('animated bounceInRight');
         $('#place-dot').click();
       }, 300);
+    // Place
     } else if (this.dlgSelected == "place") {
       $('#placeArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
@@ -164,17 +171,30 @@ export class HomePage {
   {
 
    let characterContainer = $(e.target).parent();
-   if (!characterContainer.hasClass('selected') && !characterContainer.hasClass('disabled')) {
+    if (!characterContainer.hasClass('selected') && !characterContainer.hasClass('disabled')) {
       this.characters[this.dlgSelected]['type'] = type;
-      this.mainCharacter =  new CharacterModel(
-        this.characters[this.dlgSelected]['type'],
-        this.characters[this.dlgSelected]['name'],
-        "es");
-        console.log(this.mainCharacter)
-      if (this.genreIsFixed()) {
-        this.characters[this.dlgSelected]['genre'] =  this.charactersFixedSex[this.characters[this.dlgSelected].type];
+      if (this.dlgSelected == "ch1") {
+        this.mainCharacter = new CharacterModel(
+          this.characters[this.dlgSelected]['type'],
+          this.characters[this.dlgSelected]['name'],
+          "es", this.translate
+        );
+        if (this.mainCharacter.getSexFixed()) {
+          this.characters[this.dlgSelected]['genre'] = this.dlgSelected == "ch1" ? this.mainCharacter.getSexGenre() : this.secondaryCharacter.getSexGenre();
+        } else {
+          this.characters[this.dlgSelected]['genre'] = "";
+        }
       } else {
-        this.characters[this.dlgSelected]['genre'] = "";
+        this.secondaryCharacter = new CharacterModel(
+          this.characters[this.dlgSelected]['type'],
+          this.characters[this.dlgSelected]['name'],
+          "es", this.translate
+        );
+        if (this.secondaryCharacter.getSexFixed()) {
+          this.characters[this.dlgSelected]['genre'] = this.dlgSelected == "ch1" ? this.mainCharacter.getSexGenre() : this.secondaryCharacter.getSexGenre();
+        } else {
+          this.characters[this.dlgSelected]['genre'] = "";
+        }
       }
     }
   }

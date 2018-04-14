@@ -335,7 +335,7 @@
               </ion-row>
             </div>
             <hr>
-            <ion-row id="genre-buttons" *ngIf="dlgSelected == 'ch1' && mainCharacter && !mainCharacter.sexFixed" >
+            <ion-row id="genre-buttons" *ngIf="(dlgSelected == 'ch1' && mainCharacter && !mainCharacter.sexFixed) || (dlgSelected == 'ch2' && secondaryCharacter && !secondaryCharacter.sexFixed) "  >
               <ion-col col-6>
                 <button (click) = "selectGenre($event,'male')" [ngClass]="{'selected animated rubberBand': characters[dlgSelected].genre == 'male' }" class="genre male" ion-button outline><ion-icon  name="man"></ion-icon></button>
               </ion-col>
@@ -503,7 +503,8 @@
         </ion-card>
       </ion-col>
       <ion-col col-1>
-        <ion-fab middle right edge *ngIf="dlgSelected != 'story' && ( (dlgSelected == 'ch1' || dlgSelected == 'ch2') && characters[dlgSelected].name && characters[dlgSelected].genre) || 
+        <ion-fab middle right edge *ngIf="dlgSelected != 'story' && 
+        ( (dlgSelected == 'ch1' || dlgSelected == 'ch2') && characters[dlgSelected].name && characters[dlgSelected].genre) || 
         (dlgSelected == 'object'  && objectSelected) || (dlgSelected == 'place'  && placeSelected) ">
           <button ion-fab mini class="fadeIn animated " (click)="next()"> <ion-icon name="arrow-dropright"></ion-icon></button>
         </ion-fab>

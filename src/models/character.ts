@@ -1,12 +1,14 @@
 export class CharacterModel {
-    public translateType: string
-    public sexFixed: boolean = false
-    private sexGenre: string
+    public type: string
+    private sexFixed: boolean = false
+		private sexGenre: string
+		
   constructor
     (
 		public key: string,
 		public name: string,
-		public language : any
+		public language : any,
+		public translate : any
 		) {
 		this.sexFixed = this.checkFixedSex();
 	}
@@ -19,7 +21,6 @@ export class CharacterModel {
 		switch (this.key) {
 			// MALE ONLY SPANISH
 			case "snail":
-			case "shark":
 			case "chameleon":
 			case "octopus":
 			case "fish":
@@ -53,6 +54,7 @@ export class CharacterModel {
 			case "medusa":
 			case "mushroom":
 			case "puppet":
+			case "lizard":
 				if (this.language == "es") {
 					sexFixed = true;
 					this.setSexGenre("female");
@@ -62,6 +64,7 @@ export class CharacterModel {
 			case "amazon":
 			case "harpy":
 			case "mermaid":
+			case "witch":
 				sexFixed = true;
 				this.setSexGenre("female");
 				break;
@@ -73,6 +76,29 @@ export class CharacterModel {
 	setSexGenre(sex: string): void
 	{
 		this.sexGenre = sex;
+	}
+
+	format(name: string, genre: string): void
+	{
+		this.name = name;
+		this.sexGenre = genre;
+		
+		if (this.language == "en" || this.getSexFixed()) {
+			this.type = this.translate.instant("STORY.CHARACTERS."+this.key);
+		} else {
+			console.log("re")
+			this.type = this.translate.instant("STORY.CHARACTERS." + this.key +"." + this.sexGenre);
+		}
+	}
+
+	getSexGenre(): string
+	{
+		return this.sexGenre;
+	}
+
+	getSexFixed(): boolean
+	{
+		return this.sexFixed;
 	}
 
 }
