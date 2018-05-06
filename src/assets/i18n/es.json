@@ -127,7 +127,10 @@
       },
       "ant": "hormiga",
       "worm": "lombriz",
-      "kangaroo": "kanguro",
+      "kangaroo": {
+        "male": "canguro",
+        "female": "canguro"
+      },
       "octopus": "pulpo",
       "fish": "pececito",
       "bear" :{

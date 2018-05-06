@@ -20,7 +20,7 @@ export class CharacterModel {
 
 		switch (this.key) {
 			// MALE ONLY SPANISH
-			case "snail":
+		
 			case "chameleon":
 			case "octopus":
 			case "fish":
