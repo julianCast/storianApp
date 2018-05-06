@@ -25,20 +25,6 @@
     "object": "Objeto",
     "choosePlace": "Elige uno",
     "createStory": "Crear Historia",
-    "DLG_DESCRIPTIONS": {
-      "lighthouse_desc": "Un faro encantado",
-      "vulcano_desc": "Un peligroso volcán",
-      "sea_desc": "Bajo el mar",
-      "city_desc": "Una bulliciosa ciudad",
-      "snow_desc": "Nieve por todas partes",
-      "home_desc": "Tu casa",
-      "beach_desc": "Una playa coqueta",
-      "waterfall_desc": "Bajo una cascada",
-      "river_desc": "Un rio mágico",
-      "desert_desc": "En pleno desierto",
-      "forest_desc": "Un frondoso bosque",
-      "castle_desc": "Un castillo gigante"
-    },
     "CHARACTERS": {
       "cat" : {
         "male": "gato",
@@ -84,7 +70,10 @@
         "female": "cerdita"
       },
       "bee" : "avispa",
-      "penguin" : "pinguino",
+      "penguin" : {
+        "male": "pinguino",
+        "female": "pinguino"
+      },
       "owl" :{
         "male": "búho",
         "female": "lechuza"
@@ -222,6 +211,56 @@
       "wand" : {
         "name": "varita",
         "description":"Una varita"
+      }
+    },
+    "PLACES": {
+      "lighthouse" : {
+        "name": "faro",
+        "description":"Un faro encantado"
+      },
+      "volcano" : {
+        "name": "volcan",
+        "description":"Un peligroso volcán"
+      },
+      "sea" : {
+        "name": "mar",
+        "description":"Bajo el mar"
+      },
+      "city" : {
+        "name": "ciudad",
+        "description":"Una bulliciosa ciudad"
+      },
+      "windmill" : {
+        "name": "molino",
+        "description":"Un molino"
+      },
+      "house" : {
+        "name": "casa",
+        "description":"Tu casa"
+      },
+      "beach" : {
+        "name": "playa",
+        "description":"Una playa coqueta"
+      },
+      "waterfall" : {
+        "name": "cascada",
+        "description":"Bajo una cascada"
+      },
+      "river" : {
+        "name": "rio",
+        "description":"Un rio mágico"
+      },
+      "desert" : {
+        "name": "desierto",
+        "description":"Un árido desierto"
+      },
+      "forest" : {
+        "name": "bosque",
+        "description":"Un frondoso bosque"
+      },
+      "castle" : {
+        "name": "castillo",
+        "description":"Un castillo gigante"
       }
     }
    

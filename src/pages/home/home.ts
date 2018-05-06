@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { CharacterModel  } from '../../models/character';
 import { ObjectModel  } from '../../models/object';
+import { PlaceModel  } from '../../models/place';
 
 declare var $: any;
 declare var DotNav: any
@@ -31,6 +32,7 @@ export class HomePage {
   public mainCharacter : CharacterModel;
   public secondaryCharacter : CharacterModel;
   public object: ObjectModel;
+  public place: PlaceModel;
   public charactersFixedSex = {
     'centaur' : "male",
     'satyr' : "male",
@@ -112,7 +114,8 @@ export class HomePage {
       $('#charactersArea').addClass('animated bounceInRight');
         $('#ch2-dot').click();
       }, 300);
-    
+      console.log(this.mainCharacter)
+
     // Secondary Character
     } else if (this.dlgSelected == "ch2") {
       this.secondaryCharacter.format(this.characters["ch2"].name, this.characters["ch2"].genre);
@@ -124,6 +127,7 @@ export class HomePage {
         $('#objectArea').addClass('animated bounceInRight');
         $('#object-dot').click();
       }, 300);
+      console.log(this.secondaryCharacter)
     // Pick Object
     } else if (this.dlgSelected == "object") {
       $('#objectArea').addClass('animated bounceOutLeft');
@@ -146,6 +150,8 @@ export class HomePage {
   {
     this.nativeAudio.play('ding-selected')
     this.placeSelected = place;
+    this.place = new PlaceModel(place, "es", this.translate)
+    console.log(this.place)
   }
 
   selectObject(object: string): void
@@ -153,6 +159,7 @@ export class HomePage {
     this.nativeAudio.play('ding-selected')
     this.objectSelected = object;
     this.object = new ObjectModel(object, "es", this.translate)
+    console.log(this.object)
   }
 
   selectGenre(e, genre: string): void
@@ -200,16 +207,6 @@ export class HomePage {
         }
       }
     }
-  }
-
-  transPlaceDescription(): string
-  {
-    return this.translate.instant("STORY.DLG_DESCRIPTIONS."+this.placeSelected+"_desc");
-  }
-
-  transObjectDescription(): string
-  {
-    return this.translate.instant("STORY.DLG_DESCRIPTIONS."+this.objectSelected+"_desc");
   }
 
   createStory() 
