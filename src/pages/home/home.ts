@@ -4,6 +4,7 @@ import { StoryService } from '../../providers/story-service/story-service';
 import { TranslateService } from '@ngx-translate/core';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { CharacterModel  } from '../../models/character';
+import { ObjectModel  } from '../../models/object';
 
 declare var $: any;
 declare var DotNav: any
@@ -29,6 +30,7 @@ export class HomePage {
   }
   public mainCharacter : CharacterModel;
   public secondaryCharacter : CharacterModel;
+  public object: ObjectModel;
   public charactersFixedSex = {
     'centaur' : "male",
     'satyr' : "male",
@@ -150,6 +152,7 @@ export class HomePage {
   {
     this.nativeAudio.play('ding-selected')
     this.objectSelected = object;
+    this.object = new ObjectModel(object, "es", this.translate)
   }
 
   selectGenre(e, genre: string): void

@@ -37,19 +37,7 @@
       "river_desc": "Un rio mágico",
       "desert_desc": "En pleno desierto",
       "forest_desc": "Un frondoso bosque",
-      "castle_desc": "Un castillo gigante",
-      "arch_desc": "Un arco de madera",
-      "backpack_desc": "Una mochila con mucho espacio",
-      "chest_desc": "Bajo el mar",
-      "compass_desc": "Una brújula mágica",
-      "diamond_desc": "Un valioso diamante",
-      "flashlight_desc": "Una linterna solar",
-      "key_desc": "Una llave dorada",
-      "map_desc": "Un antiguo mapa",
-      "pencil_desc": "Un lápiz",
-      "shield_desc": "Un escudo de acero",
-      "sword_desc": "Una espada valiria",
-      "wand_desc": "Una varita"
+      "castle_desc": "Un castillo gigante"
     },
     "CHARACTERS": {
       "cat" : {
@@ -185,6 +173,56 @@
       "scarecrow": "espantapájaros",
       "tree": "arbol",
       "troll": "trol"
+    },
+    "OBJECTS": {
+      "bow" : {
+        "name": "arco",
+        "description":"Un arco de madera"
+      },
+      "backpack" : {
+        "name": "mochila",
+        "description":"Una mochila con mucho espacio"
+      },
+      "chest" : {
+        "name": "baúl",
+        "description":"Bajo el mar"
+      },
+      "compass" : {
+        "name": "brújula",
+        "description":"Una brújula mágica"
+      },
+      "diamond" : {
+        "name": "diamante",
+        "description":"Un valioso diamante"
+      },
+      "flashlight" : {
+        "name": "linterna",
+        "description":"Una linterna solar"
+      },
+      "key" : {
+        "name": "llave",
+        "description":"Una llave dorada"
+      },
+      "map" : {
+        "name": "mapa",
+        "description":"Un antiguo mapa"
+      },
+      "pencil" : {
+        "name": "lápiz",
+        "description":"Un lápiz"
+      },
+      "sword" : {
+        "name": "espada",
+        "description":"Una espada valiria"
+      },
+      "shield" : {
+        "name": "escudo",
+        "description":"Un escudo de acero"
+      },
+      "wand" : {
+        "name": "varita",
+        "description":"Una varita"
+      }
     }
    
  
