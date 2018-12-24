@@ -17,7 +17,7 @@ export class StoryService {
 
 
       // Uncomment whenever we use languages let lang = this.config.getLanguageUser();
-      let data = "nameP1="+character1.name+"&typeP1="+character1.type+"&nameP2="+character2.name+"&typeP2="+character2.type+"&place="+place+"&object="+object+"&lang=es"
+      let data = "nameP1="+character1.name+"&typeP1="+character1.type+"&nameP2="+character2.name+"&typeP2="+character2.type+"&place="+place.name+"&object="+object.name+"&lang=es"
       this.http.post("http://storian.esy.es/api/get-story", data, { headers: new HttpHeaders(headers) }).subscribe(
         data => {
           resolve(data);

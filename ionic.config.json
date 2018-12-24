@@ -1,8 +1,8 @@
 {
   "name": "storian",
-  "app_id": "822338ad",
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "pro_id": "822338ad"
 }

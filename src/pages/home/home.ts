@@ -29,6 +29,8 @@ export class HomePage {
       genre: ""
     }
   }
+  public imageMargin = "-67";
+  public fixedTop = false;
   public mainCharacter : CharacterModel;
   public secondaryCharacter : CharacterModel;
   public object: ObjectModel;
@@ -140,7 +142,7 @@ export class HomePage {
     } else if (this.dlgSelected == "place") {
       $('#placeArea').addClass('animated bounceOutLeft');
       setTimeout(() => {
-        this.dlgSelected = 'story';
+        this.createStory();
       }, 300);
     }
   }
@@ -177,6 +179,27 @@ export class HomePage {
     }
   
   }
+
+  onScroll(event): void
+  {
+   // console.log(event.scrollTop)
+    let marginInitial = -67;
+    let scrollQ =  event.scrollTop;
+    
+    if (scrollQ > 40) {
+      $('#container-image .card-title').addClass('fixed-top')
+    } else {
+      $('#container-image .card-title').removeClass('fixed-top')
+    }
+    
+      console.log(scrollQ)
+      $('#container-image img').css({ /* 'marginTop': marginInitial+scrollQ+'px' */'filter': 'blur('+event.scrollTop/20+'px)' });
+     //$('#container-image img').css('background-position','center -'+((scrollQ*0.2))+'px');
+ 
+
+  }
+
+
   selectType(e,type: string): void
   {
 
@@ -211,14 +234,20 @@ export class HomePage {
 
   createStory() 
   {
-    this.storyService.getStory(this.characters['ch1'], this.characters['ch2'], this.placeSelected, this.objectSelected).then(
+    this.story.title = "El honrado tiburón del bosque"
+    this.story.story = "Erase un príncipe muy admirado en su reino. Todas los chicos deseaban tenerle cerca.Pero el pŕincipe no se fijaba en ninguno y pasaba su tiempo jugando con Julian, un precioso perro, junto a un bosque cercano. Un día, dijo en voz alta:- Eres tan cariñoso  y adorable que, si fueras un chico, serías siempre mi amigo. En el mismo instante apareció en la estancia Sarah, la vaca de lo Imposibles, que dijo:- Príncipe, tus deseos se han cumplido.El joven, deslumbrado, descubrió junto a el a Julian, convertido en una persona real. Al día siguiente mientras cenaban con la familia, los nobles y pobres del reino que acudieron al banquete se sorprendieron ante su nueva amistad. Pero, de pronto, vieron a Julian  lanzarse sobre un ratoncillo que zigzagueaba por el salón y zampárselo en cuanto lo hubo atrapado.El príncipe empezó entonces a llamar a la vaca de los Imposibles para que convirtiera a su amigo en el perro que había sido. Pero la vaca no acudió, y nadie nos ha contado si tuvo que pasarse la vida contemplando como su amigo  daba cuenta de todos los ratones de palacio."
+    this.dlgSelected = 'story';
+
+    /*     this.storyService.getStory(this.mainCharacter, this.secondaryCharacter, this.place, this.object).then(
       data => {
         this.story.title = data['title'];
         this.story.story = data['story'];
         this.dlgSelected = 'story';
       },
-      error => { }
-    )
+      error => {
+        console.error("error getting story", error)
+       }
+    ) */
   }
 
   listenStory()
@@ -254,10 +283,11 @@ export class HomePage {
   }
   ionViewDidEnter(): void
   {
-    //this.dlgSelected = 'place';
-  /* UNCOMMENT THIS TO SEE STORY EXAMPLE  this.story.title ="El guerrero de Sumatra";
+  /*  this.dlgSelected = 'place';
+  //UNCOMMENT THIS TO SEE STORY EXAMPLE  this.story.title ="El guerrero de Sumatra";
     this.story.story = "Los Kalabubu poseen una forma circular con uña diámetro desde los 22 hasta los 25 centímetros. El grosor del kalabubu varía, siendo la parte central la más gruesa y luego gradualmente adelgazándose hacia ambos fines. Las puntas de los fines están conectadas para formar un disco hecho usualmente de latón, y en raras ocasiones oro. El marco interno del collar esta hecho de un alambre de hierro o latón que es atado al final. Este marco representa la gran serpiente dorada de la mitología de la isla. El elefante africano de sabana se caracteriza por su gran cabeza, amplias orejas que cubren los hombros, trompa larga y musculosa, presencia de dos colmillos en la mandíbula superior, bien desarrollados en ambos sexos aunque mayores en los machos. En su ambiente natural viven entre 40 y 50 años, pues un elefante adulto no tiene enemigos naturales, con excepción del hombre. A partir de los 40 años sus últimos dientes se desgastan y les es imposible comer, y mueren. En cautiverio pueden vivir más tiempo por los cuidados y alimentación que reciben; pueden llegar a los 60 años. ";
-    this.dlgSelected = 'story'; */
+    this.dlgSelected = 'story';
+    this.createStory()*/
   }
 
 
