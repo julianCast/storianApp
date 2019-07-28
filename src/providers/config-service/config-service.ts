@@ -104,14 +104,4 @@ export class ConfigService {
     this.config = config;
     return this.storage.set('config', config);
   }
-  updateCollection() {
-    this.http.get("http://storian.esy.es/api/get-stories-length", {}).subscribe(
-      data => {
-        //this.config['stories-read']['db_count'] = data.json();
-      },
-      error => {
-        console.log('error getting length-collection',error)
-      });
-  }
-
 }

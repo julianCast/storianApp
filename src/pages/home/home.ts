@@ -233,21 +233,9 @@ export class HomePage {
   }
 
   createStory() 
-  {
-    this.story.title = "El honrado tiburón del bosque"
-    this.story.story = "Erase un príncipe muy admirado en su reino. Todas los chicos deseaban tenerle cerca.Pero el pŕincipe no se fijaba en ninguno y pasaba su tiempo jugando con Julian, un precioso perro, junto a un bosque cercano. Un día, dijo en voz alta:- Eres tan cariñoso  y adorable que, si fueras un chico, serías siempre mi amigo. En el mismo instante apareció en la estancia Sarah, la vaca de lo Imposibles, que dijo:- Príncipe, tus deseos se han cumplido.El joven, deslumbrado, descubrió junto a el a Julian, convertido en una persona real. Al día siguiente mientras cenaban con la familia, los nobles y pobres del reino que acudieron al banquete se sorprendieron ante su nueva amistad. Pero, de pronto, vieron a Julian  lanzarse sobre un ratoncillo que zigzagueaba por el salón y zampárselo en cuanto lo hubo atrapado.El príncipe empezó entonces a llamar a la vaca de los Imposibles para que convirtiera a su amigo en el perro que había sido. Pero la vaca no acudió, y nadie nos ha contado si tuvo que pasarse la vida contemplando como su amigo  daba cuenta de todos los ratones de palacio."
+  { 
     this.dlgSelected = 'story';
-
-    /*     this.storyService.getStory(this.mainCharacter, this.secondaryCharacter, this.place, this.object).then(
-      data => {
-        this.story.title = data['title'];
-        this.story.story = data['story'];
-        this.dlgSelected = 'story';
-      },
-      error => {
-        console.error("error getting story", error)
-       }
-    ) */
+    this.story = this.storyService.getStory(this.mainCharacter, this.secondaryCharacter, this.place, this.object)
   }
 
   listenStory()

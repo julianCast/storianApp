@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { LanguageService } from '../providers/language-service/language-service';
 import { ConfigService } from '../providers/config-service/config-service';
+import { StoryService } from '../providers/story-service/story-service';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class MyApp {
     public config: ConfigService,
     private nativeAudio: NativeAudio,
     private statusBar: StatusBar,
-    private splashScreen: SplashScreen
+    private splashScreen: SplashScreen,
+    private storyService: StoryService
   ) {
 
     // Pages showed on #sideMenu
@@ -41,7 +43,7 @@ export class MyApp {
     // Load config
     config.getConfig().then(
       (data) => {
-        config.updateCollection();
+        this.storyService.loadStoriesCollection();
         this.translate.use(data['language']);
         if (this.platform.is('cordova')) {
           this.nativeAudio.preloadComplex('ding-selected', 'assets/sound/ding.mp3', 0.3, 1, 1)
